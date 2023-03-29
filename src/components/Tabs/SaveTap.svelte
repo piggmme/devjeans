@@ -58,6 +58,7 @@
       push('/login?redirect=decorate')
       return
     }
+    redirectToUpload = true
     createImage()
   }
 
@@ -66,10 +67,9 @@
       origin: resultImage,
       thumbnail: thumbnailImage,
     }
-    redirectToUpload = true
   }
 
-  $: if (redirectToUpload) {
+  $: if ($resultBunny?.origin && redirectToUpload) {
     push('/upload')
   }
 </script>
