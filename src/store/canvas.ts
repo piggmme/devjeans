@@ -1,5 +1,5 @@
-import type {fabric} from 'fabric'
-import {writable} from 'svelte/store'
+import {fabric} from 'fabric'
+import {get, writable} from 'svelte/store'
 
 import {getRandomInt} from 'src/lib/getRandom'
 import {backgrounds} from 'src/const/colors'
@@ -23,8 +23,11 @@ import cookieImg from 'src/assets/costume/cookie.png'
 import hardHatImg from 'src/assets/costume/hardHat.png'
 
 export const background = writable(backgrounds[getRandomInt(0, backgrounds.length - 1)])
+export const backgroundImage = writable('')
 
 export const canvas = writable<fabric.Canvas | null>()
+export const savedCanvas = writable<{version: string; objects: Object[]}>()
+
 export const width = writable(600)
 
 const defaultCostume = {
@@ -131,4 +134,39 @@ export const toggleCostume = (target: keyof typeof defaultCostume) => {
 
 export const resetCostume = () => {
   hasCostume.set(defaultCostume)
+}
+
+export const addCostume = (costume: CostumeKeys) => {
+  const $canvas = get(canvas)
+  const $width = get(width)
+
+  let costumeImg = costumeInfo[costume].src
+
+  fabric.Image.fromURL(costumeImg, function (img) {
+    img.scaleToWidth($width)
+    img.scaleToWidth($width)
+    img.selectable = false
+
+    img.set('itemType', 'costume')
+    img.set('costume', costume)
+    $canvas.add(img)
+
+    // 캔버스의 오브젝트들을 순회하며 basketball은 가장 위로 올림
+    // TODO. index를 custome 마다 관리해야함
+    $canvas.getObjects().forEach((obj) => {
+      if (obj.costume === 'basketball' || obj.costume === 'laptop') {
+        $canvas.moveTo(obj, 100)
+      }
+    })
+
+    $canvas.renderAll()
+  })
+}
+
+export const removeCostume = (costume: CostumeKeys) => {
+  const $canvas = get(canvas)
+
+  const objects = $canvas.getObjects()
+  const costumeObjects = objects.filter((obj) => obj.costume === costume)
+  costumeObjects.forEach((obj) => $canvas.remove(obj))
 }
