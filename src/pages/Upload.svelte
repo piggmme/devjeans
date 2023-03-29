@@ -37,6 +37,7 @@
           '--toastBackground': '#ff595eaa',
         },
       })
+      isUploading = false
       return
     }
     uploadImage()
