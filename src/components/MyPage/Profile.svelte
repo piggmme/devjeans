@@ -32,8 +32,7 @@
   <div class="profile-wrapper">
     <img src={$userInfo?.profileImage} alt={$userInfo?.email} aria-hidden="true" />
     <div class="detail">
-      <span>{$userInfo?.lastName} {$userInfo?.firstName}</span>
-      <!-- TODO. 버니 업로드 모달 띄우기 -->
+      <span>@{$userInfo?.email.split('@')[0]}</span>
       <button type="button" on:click={onClick}>나의 버니 만들어서 업로드하기</button>
     </div>
   </div>
