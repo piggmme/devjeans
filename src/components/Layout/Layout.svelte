@@ -70,20 +70,7 @@
     text-decoration: none;
   }
 
-  .donation {
-    width: 100%;
-    font-size: 16px;
-    text-align: center;
-    background-color: #f1c164;
-    color: #16345a;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-  }
-
-  .donation_icon {
-    width: 60px;
-    display: inline-block;
+  span {
+    font-weight: 800;
   }
 </style>
