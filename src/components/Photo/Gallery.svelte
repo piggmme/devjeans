@@ -6,7 +6,6 @@
   export let photos: PhotoRes[] = []
 </script>
 
-<!-- TODO. 갤러리 스켈레톤 UI 적용 -->
 <div class="grid">
   {#each photos as photo}
     <a href={`/detail/${photo.photoId}`} use:link class="item">
@@ -22,8 +21,21 @@
 <style>
   .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     grid-gap: 10px;
+  }
+
+  @media screen and (min-width: 500px) {
+    .grid {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .grid {
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
   }
 
   .item {
