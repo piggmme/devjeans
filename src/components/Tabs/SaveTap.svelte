@@ -29,7 +29,7 @@
       $canvas.renderAll()
 
       thumbnailImage = $canvas.toDataURL({format: 'jpeg', quality: 0.4})
-      resultImage = $canvas.toDataURL({format: 'png', quality: 2})
+      resultImage = $canvas.toDataURL({format: 'png', quality: 4})
 
       $canvas.remove(img)
     })
