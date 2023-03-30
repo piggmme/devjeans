@@ -5,6 +5,23 @@
   import {routes} from 'src/pages/routes'
   import {onMount} from 'svelte'
   import {initUser} from 'src/lib/initUser'
+  import { datadogRum } from '@datadog/browser-rum';
+
+  datadogRum.init({
+    applicationId: `${import.meta.env.VITE_APP_DATADOG_APP_ID}`,
+    clientToken: `${import.meta.env.VITE_APP_DATADOG_CLIENT_TOKEN}`,
+    site: `${import.meta.env.VITE_APP_DATADOG_SITE}`,
+    service: `${import.meta.env.VITE_APP_DATADOG_SERVICE}`,
+
+    // Specify a version number to identify the deployed version of your application in Datadog
+    // version: '1.0.0',
+    sessionSampleRate: 100,
+    premiumSampleRate: 100,
+    trackUserInteractions: true,
+    defaultPrivacyLevel:'mask-user-input'
+  });
+
+  datadogRum.startSessionReplayRecording();
 
   const queryClient = new QueryClient()
   onMount(initUser)

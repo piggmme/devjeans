@@ -14,6 +14,11 @@ interface ImportMetaEnv {
   readonly VITE_APP_API_URL: string
   readonly VITE_APP_GOOGLE_CLIENT_ID: string
   readonly VITE_APP_S3_URL: string
+
+  readonly VITE_APP_DATADOG_APP_ID: string
+  readonly VITE_APP_DATADOG_CLIENT_TOKEN: string
+  readonly VITE_APP_DATADOG_SITE: string
+  readonly VITE_APP_DATADOG_SERVICE: string
 }
 
 interface ImportMeta {
