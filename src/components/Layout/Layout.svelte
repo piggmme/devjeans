@@ -16,7 +16,7 @@
 </main>
 
 <footer>
-  <Noti icon="🥕" text="개발자에게 당근을 사주세요! (당근당근)" href="https://ice-americano.co.kr/page/dev-jeans" />
+  <!-- <Noti icon="🥕" text="개발자에게 당근을 사주세요! (당근당근)" href="https://ice-americano.co.kr/page/dev-jeans" /> -->
   <span>
     Instagram: <a href="https://www.instagram.com/dev_hee/">@dev_hee</a>
   </span>

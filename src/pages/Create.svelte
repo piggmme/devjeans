@@ -21,6 +21,9 @@
   import {querystring} from 'svelte-spa-router'
   import {resultBunny} from 'src/store/resultBunny'
 
+  // 이미지/아이템/드로잉 위치 조정을 위해 소수점 8자리까지 표현
+  fabric.Object.NUM_FRACTION_DIGITS = 8
+
   const getWidth = () => {
     if (window.innerWidth < 600) return window.innerWidth
     return 600
@@ -28,19 +31,7 @@
 
   const setSavedCanvas = () => {
     $canvas.loadFromJSON($savedCanvas, () => {
-      // $canvas의 backgroundImage를 scaleX: $canvas.width / img.width, scaleY: $canvas.height / img.height 로 속성 설정
-      if ($backgroundImage) {
-        fabric.Image.fromURL($backgroundImage, function (img) {
-          img.set('itemType', 'background')
-          $canvas.setBackgroundImage(img, $canvas.renderAll.bind($canvas), {
-            scaleX: $canvas.width / img.width,
-            scaleY: $canvas.height / img.height,
-          })
-          $savedCanvas = null
-        })
-      }
       $savedCanvas = null
-
       $canvas.renderAll()
     })
   }
