@@ -20,8 +20,10 @@
   })
 
   const createImage = () => {
+    const multiplier = Math.floor(2500 / $canvas.width)
+
     thumbnailImage = $canvas.toDataURL({format: 'jpeg', quality: 0.4})
-    resultImage = $canvas.toDataURL({format: 'png', quality: 4})
+    resultImage = $canvas.toDataURL({format: 'png', quality: 1, multiplier})
   }
 
   const handleSaveImage = () => {
