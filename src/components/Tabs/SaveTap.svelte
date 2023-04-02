@@ -20,30 +20,8 @@
   })
 
   const createImage = () => {
-    const shadow = new fabric.Shadow({
-      color: 'black',
-      blur: 5,
-    })
-
-    const text = new fabric.Text('@dev_hee', {
-      left: $canvas.width - 10,
-      top: $canvas.height - 10,
-      fontSize: 16,
-      fontFamily: 'Noto Sans KR',
-      fill: '#fff',
-      textAlign: 'center',
-      originX: 'right',
-      originY: 'bottom',
-      shadow: shadow,
-    })
-
-    $canvas.add(text)
-    $canvas.renderAll()
-
     thumbnailImage = $canvas.toDataURL({format: 'jpeg', quality: 0.4})
     resultImage = $canvas.toDataURL({format: 'png', quality: 4})
-
-    $canvas.remove(text)
   }
 
   const handleSaveImage = () => {
