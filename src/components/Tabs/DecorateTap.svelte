@@ -12,9 +12,10 @@
     resetCostume,
     type CostumeKeys,
     categories,
-    categoryCustom,
+    categoryCostume,
     type CategoryKey,
   } from 'src/store/canvas'
+  import Costume from '../Costume/Costume.svelte'
 
   let activeCategory: CategoryKey = '옷'
 
@@ -32,6 +33,8 @@
   }
 </script>
 
+<Costume />
+
 <div class="container">
   <h2>아이템을 추가해 꾸며 주세요!</h2>
 
@@ -47,7 +50,7 @@
     <li>
       <button class="item reset" on:click={reset}>초기화하기</button>
     </li>
-    {#each categoryCustom[activeCategory] as costume}
+    {#each categoryCostume[activeCategory] as costume}
       <li>
         <button class="item {$hasCostume[costume].isHas ? 'active' : ''}" on:click={toggleActive(costume)}
           >{costumeInfo[costume].title}</button

@@ -40,9 +40,9 @@ export type InfoType = {
 
 export const categories = ['옷', '모자', '신발', '기타']
 
-export type CategoryKey = keyof typeof categoryCustom
+export type CategoryKey = keyof typeof categoryCostume
 
-export const categoryCustom = {
+export const categoryCostume = {
   옷: ['basketballVest'],
   모자: ['hairband', 'ballCap', 'hardHat'],
   신발: ['sneakers'],
@@ -61,7 +61,7 @@ export const categoryCustom = {
   ],
 }
 
-export type CustomInfosType = {
+export type CostumeInfosType = {
   glasses: InfoType
   hair: InfoType
   laptop: InfoType
@@ -81,7 +81,7 @@ export type CustomInfosType = {
   hardHat: InfoType
 }
 
-export const costumeInfo: CustomInfosType = {
+export const costumeInfo: CostumeInfosType = {
   glasses: {
     title: '안경',
     src: glassesImg,
@@ -181,7 +181,7 @@ export const toggleCostume = (target: CostumeKeys) => {
 
 export const resetCostume = (target: CategoryKey) => {
   hasCostume.update((costume) => {
-    categoryCustom[target].forEach((key) => {
+    categoryCostume[target].forEach((key) => {
       costume[key].isHas = false
     })
     return costume
@@ -204,7 +204,7 @@ export const addCostume = (costume: CostumeKeys) => {
     $canvas.add(img)
 
     // 캔버스의 오브젝트들을 순회하며 basketball은 가장 위로 올림
-    // TODO. index를 custome 마다 관리해야함
+    // TODO. index를 Costume 마다 관리해야함
     $canvas.getObjects().forEach((obj) => {
       if (obj.costume === 'basketball' || obj.costume === 'laptop') {
         $canvas.moveTo(obj, 100)
