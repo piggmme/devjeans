@@ -30,110 +30,162 @@ export const savedCanvas = writable<{version: string; objects: Object[]}>()
 
 export const width = writable(600)
 
-const defaultCostume = {
-  glasses: false,
-  hair: false,
-  laptop: false,
-  coffee: false,
-  goggles: false,
-  hairband: false,
-  headphones: false,
-  basketball: false,
-  basketballVest: false,
-  airpot: false,
-  ballCap: false,
-  darkCircles: false,
-  hardHat: false,
-  toast: false,
-  watch: false,
-  sneakers: false,
-  cookie: false,
+export type CostumeKeys = keyof typeof costumeInfo
+
+export type InfoType = {
+  title: string
+  src: string
+  isHas: boolean
 }
 
-export type CostumeKeys = keyof typeof defaultCostume
+export const categories = ['옷', '모자', '신발', '기타']
 
-export const costumeInfo = {
+export type CategoryKey = keyof typeof categoryCustom
+
+export const categoryCustom = {
+  옷: ['basketballVest'],
+  모자: ['hairband', 'ballCap', 'hardHat'],
+  신발: ['sneakers'],
+  기타: [
+    'glasses',
+    'laptop',
+    'coffee',
+    'goggles',
+    'headphones',
+    'basketball',
+    'airpot',
+    'darkCircles',
+    'toast',
+    'watch',
+    'cookie',
+  ],
+}
+
+export type CustomInfosType = {
+  glasses: InfoType
+  hair: InfoType
+  laptop: InfoType
+  coffee: InfoType
+  goggles: InfoType
+  hairband: InfoType
+  headphones: InfoType
+  basketballVest: InfoType
+  basketball: InfoType
+  airpot: InfoType
+  ballCap: InfoType
+  darkCircles: InfoType
+  toast: InfoType
+  watch: InfoType
+  sneakers: InfoType
+  cookie: InfoType
+  hardHat: InfoType
+}
+
+export const costumeInfo: CustomInfosType = {
   glasses: {
     title: '안경',
     src: glassesImg,
+    isHas: false,
   },
   hair: {
     title: '앞머리',
     src: hairImg,
+    isHas: false,
   },
   laptop: {
     title: '노트북',
     src: laptopImg,
+    isHas: false,
   },
   coffee: {
     title: '커피',
     src: coffeeImg,
+    isHas: false,
   },
   goggles: {
     title: '고글',
     src: gogglesImg,
+    isHas: false,
   },
   headphones: {
     title: '헤드폰',
     src: headphonesImg,
+    isHas: false,
   },
   hairband: {
     title: '농구 머리띠',
     src: hairbandImg,
+    isHas: false,
   },
   basketballVest: {
     title: '농구 조끼',
     src: basketballVestImg,
+    isHas: false,
   },
   basketball: {
     title: '농구 공',
     src: basketballImg,
+    isHas: false,
   },
   airpot: {
     title: '에어팟',
     src: airpotImg,
+    isHas: false,
   },
+
   ballCap: {
     title: '볼캡',
     src: ballCapImg,
+    isHas: false,
   },
   darkCircles: {
     title: '다크써클',
     src: darkCirclesImg,
+    isHas: false,
   },
   hardHat: {
     title: '안전모',
     src: hardHatImg,
+    isHas: false,
   },
   toast: {
     title: '토스트',
     src: toastImg,
+    isHas: false,
   },
   watch: {
     title: '애플워치',
     src: watchImg,
+    isHas: false,
   },
   sneakers: {
     title: '운동화',
     src: sneakersImg,
+    isHas: false,
   },
   cookie: {
     title: '쿠키',
     src: cookieImg,
+    isHas: false,
   },
 }
 
-export const hasCostume = writable(defaultCostume)
+export const hasCostume = writable(costumeInfo)
 
-export const toggleCostume = (target: keyof typeof defaultCostume) => {
-  hasCostume.update((prev) => ({
-    ...prev,
-    [target]: !prev[target],
-  }))
+export const toggleCostume = (target: CostumeKeys) => {
+  hasCostume.update((costume) => {
+    costume[target].isHas = !costume[target].isHas
+    return costume
+  })
 }
 
-export const resetCostume = () => {
-  hasCostume.set(defaultCostume)
+export const resetCostume = (target: CategoryKey) => {
+  hasCostume.update((costume) => {
+    categoryCustom[target].forEach((key) => {
+      costume[key].isHas = false
+    })
+    return costume
+  })
 }
 
 export const addCostume = (costume: CostumeKeys) => {

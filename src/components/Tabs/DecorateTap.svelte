@@ -3,11 +3,20 @@
   import {logEvent} from 'firebase/analytics'
   import {analytics} from 'src/api/firebase/firebase'
   import {onMount} from 'svelte'
-  import {canvas, width, hasCostume, costumeInfo, toggleCostume, resetCostume, type CostumeKeys} from 'src/store/canvas'
+  import {
+    canvas,
+    width,
+    hasCostume,
+    costumeInfo,
+    toggleCostume,
+    resetCostume,
+    type CostumeKeys,
+    categories,
+    categoryCustom,
+    type CategoryKey,
+  } from 'src/store/canvas'
 
-  let activeCategory = '옷'
-
-  const categories = ['옷', '모자', '신발', '기타']
+  let activeCategory: CategoryKey = '옷'
 
   onMount(() => {
     logEvent(analytics, '꾸미기 탭 진입')
@@ -19,7 +28,7 @@
 
   const reset = () => {
     logEvent(analytics, '초기화 버튼 클릭')
-    resetCostume()
+    resetCostume(activeCategory)
   }
 </script>
 
@@ -38,9 +47,9 @@
     <li>
       <button class="item reset" on:click={reset}>초기화하기</button>
     </li>
-    {#each Object.keys(costumeInfo) as costume}
+    {#each categoryCustom[activeCategory] as costume}
       <li>
-        <button class="item {$hasCostume[costume] ? 'active' : ''}" on:click={toggleActive(costume)}
+        <button class="item {$hasCostume[costume].isHas ? 'active' : ''}" on:click={toggleActive(costume)}
           >{costumeInfo[costume].title}</button
         >
       </li>

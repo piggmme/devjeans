@@ -127,8 +127,8 @@
     for (const costume in $hasCostume) {
       const hasObj = objects.find((obj) => obj.costume === costume)
 
-      if (hasObj && !$hasCostume[costume]) removeCostume(costume as CostumeKeys)
-      if (!hasObj && $hasCostume[costume]) addCostume(costume as CostumeKeys)
+      if (hasObj && !$hasCostume[costume].isHas) removeCostume(costume as CostumeKeys)
+      if (!hasObj && $hasCostume[costume].isHas) addCostume(costume as CostumeKeys)
     }
   }
 </script>
