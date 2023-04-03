@@ -94,7 +94,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin: 20px auto;
+    padding: 20px;
   }
 
   button {

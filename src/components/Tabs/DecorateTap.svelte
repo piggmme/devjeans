@@ -5,41 +5,13 @@
   import {onMount} from 'svelte'
   import {canvas, width, hasCostume, costumeInfo, toggleCostume, resetCostume, type CostumeKeys} from 'src/store/canvas'
 
+  let activeCategory = '옷'
+
+  const categories = ['옷', '모자', '신발', '기타']
+
   onMount(() => {
     logEvent(analytics, '꾸미기 탭 진입')
   })
-
-  const addCostume = (costume: CostumeKeys) => {
-    let costumeImg = costumeInfo[costume].src
-    logEvent(analytics, `${costumeInfo[costume].title} 추가`)
-
-    fabric.Image.fromURL(costumeImg, function (img) {
-      img.scaleToWidth($width)
-      img.scaleToWidth($width)
-      img.selectable = false
-
-      img.set('itemType', 'costume')
-      img.set('costume', costume)
-      $canvas.add(img)
-
-      // 캔버스의 오브젝트들을 순회하며 basketball은 가장 위로 올림
-      // TODO. index를 costume 마다 관리해야 함
-      $canvas.getObjects().forEach((obj) => {
-        if (obj.costume === 'basketball' || obj.costume === 'laptop') {
-          $canvas.moveTo(obj, 100)
-        }
-      })
-
-      $canvas.renderAll()
-    })
-  }
-
-  const removeCostume = (costume: CostumeKeys) => {
-    const objects = $canvas.getObjects()
-    logEvent(analytics, `${costumeInfo[costume].title} 제거`)
-    const costumeObjects = objects.filter((obj) => obj.costume === costume)
-    costumeObjects.forEach((obj) => $canvas.remove(obj))
-  }
 
   const toggleActive = (costume: string) => () => {
     toggleCostume(costume as CostumeKeys)
@@ -53,13 +25,22 @@
 
 <div class="container">
   <h2>아이템을 추가해 꾸며 주세요!</h2>
+
+  <ul class="categories">
+    {#each categories as category}
+      <button class="category" class:active={activeCategory === category} on:click={() => (activeCategory = category)}>
+        {category}
+      </button>
+    {/each}
+  </ul>
+
   <ul class="toolbar">
     <li>
-      <button class="reset" on:click={reset}>초기화하기</button>
+      <button class="item reset" on:click={reset}>초기화하기</button>
     </li>
     {#each Object.keys(costumeInfo) as costume}
       <li>
-        <button class={$hasCostume[costume] ? 'active' : ''} on:click={toggleActive(costume)}
+        <button class="item {$hasCostume[costume] ? 'active' : ''}" on:click={toggleActive(costume)}
           >{costumeInfo[costume].title}</button
         >
       </li>
@@ -68,14 +49,37 @@
 </div>
 
 <style>
+  .categories {
+    width: 100%;
+    display: flex;
+  }
+  .category {
+    border-radius: 0;
+    box-sizing: border-box;
+    padding: 10px 16px;
+    border: 1px solid #edf0f3;
+    background-color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    font-size: 12px;
+    border-right: none;
+  }
+  .category:last-child {
+    border-right: 1px solid #edf0f3;
+  }
+  .category.active {
+    background-color: #1982c4cc;
+    color: #fff;
+  }
   h2 {
     font-size: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     word-break: keep-all;
+    padding: 20px;
   }
   .container {
     width: 100%;
-    margin: 20px auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -88,6 +92,7 @@
     align-items: center;
     width: 100%;
     flex-wrap: wrap;
+    padding: 20px;
   }
 
   .toolbar > li {
@@ -98,7 +103,7 @@
     margin: 5px;
   }
 
-  button {
+  .item {
     box-sizing: border-box;
     padding: 10px 16px;
     border: 1px solid #ccc;
@@ -116,7 +121,7 @@
     border: none;
   }
 
-  button.active {
+  .item.active {
     color: #fff;
     border: 1px solid rgb(80, 234, 137);
     background-color: rgb(80, 234, 137);
