@@ -44,12 +44,12 @@ export type ColorableInfoType = {
   zIndex?: number
 }
 
-export const categories = ['커스텀 아이템', '아이템']
+export const categories = ['기본', '아이템']
 
 export type CategoryKey = keyof typeof categoryCostume
 
 export const categoryCostume = {
-  '커스텀 아이템': ['shirts', 'pants', 'jacketClose', 'jacketOpen', 'shoes'],
+  기본: ['shirts', 'pants', 'jacketClose', 'jacketOpen', 'shoes'],
   아이템: [
     'basketballVest',
     'hairband',
