@@ -21,6 +21,8 @@ import watchImg from 'src/assets/costume/watch.png'
 import cookieImg from 'src/assets/costume/cookie.png'
 import hardHatImg from 'src/assets/costume/hardHat.png'
 
+export const isReadyCostume = writable(false)
+
 export const background = writable(backgrounds[getRandomInt(0, backgrounds.length - 1)])
 export const backgroundImage = writable('')
 

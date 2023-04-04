@@ -14,6 +14,7 @@
     removeCostume,
     addCostume,
     backgroundImage,
+    isReadyCostume,
   } from 'src/store/canvas'
   import {activeTabValue} from 'src/store/tab'
   import {TabValue} from 'src/const/tab'
@@ -125,7 +126,7 @@
   }
 
   // 아이템 추가 및 삭제
-  $: if (initFinish && !$savedCanvas) {
+  $: if (initFinish && !$savedCanvas && $isReadyCostume) {
     const objects = $canvas.getObjects()
 
     for (const costume in $hasCostume) {
