@@ -196,7 +196,7 @@ export const costumeInfo: CostumeInfosType = {
   shirts: {
     title: '반팔',
     isHas: true,
-    zIndex: 10,
+    zIndex: 11,
   },
   pants: {
     title: '바지',
