@@ -94,6 +94,31 @@ export type CostumeInfosType = {
   shoes: ColorableInfoType
 }
 
+export const InitHasCostume = {
+  glasses: false,
+  hair: false,
+  laptop: false,
+  coffee: false,
+  goggles: false,
+  hairband: false,
+  headphones: false,
+  basketballVest: false,
+  basketball: false,
+  airpot: false,
+  ballCap: false,
+  darkCircles: false,
+  toast: false,
+  watch: false,
+  cookie: false,
+  hardHat: false,
+
+  shirts: true,
+  pants: true,
+  jacketClose: false,
+  jacketOpen: false,
+  shoes: true,
+}
+
 export const costumeInfo: CostumeInfosType = {
   glasses: {
     title: '안경',
@@ -232,7 +257,8 @@ export const toggleCostume = (target: CostumeKeys) => {
 export const resetCostume = (target: CategoryKey) => {
   hasCostume.update((costume) => {
     categoryCostume[target].forEach((key) => {
-      costume[key].isHas = false
+      console.log(key, costumeInfo[key])
+      costume[key].isHas = InitHasCostume[key]
     })
     return costume
   })
