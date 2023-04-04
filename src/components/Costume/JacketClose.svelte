@@ -1,11 +1,9 @@
 <script lang="ts">
-  let body = '#0500FF'
-  let band = '#fff'
-  let arm = '#fff'
+  import {costumeColorable} from 'src/store/costume'
 </script>
 
 <svg
-  id="jacket-close"
+  id="jacketClose"
   width="2048"
   height="2048"
   viewBox="0 0 2048 2048"
@@ -15,23 +13,32 @@
 >
   <path
     d="M862 1168L894 1203.5V1180L930.5 1145.5L1007.5 1095L1128 1047.5L1213.5 1040.5L1226.5 1138.5L1274 1212L1323.5 1261.5L1339 1302L1361.5 1322V1351.5L1323.5 1389L1274 1420L1141 1468.5L999 1509L874 1527.5L773 1535L741 1516L733 1454.5V1322L759 1188L781.5 1168H862Z"
-    fill={body}
+    fill={$costumeColorable?.jacketClose?.body || '#ff0'}
     stroke="black"
   />
   <path
     d="M606.5 1217.5L631.5 1230L576 1382.5C567 1380.67 547.2 1372 540 1352C532.8 1332 581.333 1254 606.5 1217.5Z"
-    fill={band}
+    fill={$costumeColorable?.jacketClose?.band || '#fff'}
   />
   <path
     d="M757 1181.5L789.5 1163.5H856L899 1181.5L971 1113L1111 1047H1170L1159.5 1072L1111 1100.5L899 1203L868.5 1217.5H779L757 1181.5Z"
-    fill={band}
+    fill={$costumeColorable?.jacketClose?.band || '#fff'}
   />
-  <path d="M1405 1217.5L1414 1047H1443L1461 1072L1443 1203L1405 1217.5Z" fill={band} />
-  <path d="M1226.5 1268.5L1250.5 1262L1277.5 1354L1262 1363L1233.5 1341.5L1226.5 1268.5Z" fill={band} />
-  <path d="M751.5 1477.5L757 1400.5L775.5 1397.5L779 1467.5L751.5 1477.5Z" fill={band} />
+  <path
+    d="M1405 1217.5L1414 1047H1443L1461 1072L1443 1203L1405 1217.5Z"
+    fill={$costumeColorable?.jacketClose?.band || '#fff'}
+  />
+  <path
+    d="M1226.5 1268.5L1250.5 1262L1277.5 1354L1262 1363L1233.5 1341.5L1226.5 1268.5Z"
+    fill={$costumeColorable?.jacketClose?.band || '#fff'}
+  />
+  <path
+    d="M751.5 1477.5L757 1400.5L775.5 1397.5L779 1467.5L751.5 1477.5Z"
+    fill={$costumeColorable?.jacketClose?.band || '#fff'}
+  />
   <path
     d="M779 1558L768 1536L920 1520.5L1073 1488.5L1206.5 1446.5L1272.5 1424.5L1323 1397.5L1353.5 1354L1374.5 1352V1382.5L1305.5 1430.5L1170 1488.5L971 1546L779 1558Z"
-    fill={band}
+    fill={$costumeColorable?.jacketClose?.band || '#fff'}
   />
   <path
     d="M606.5 1217.5L631.5 1230L576 1382.5C567 1380.67 547.2 1372 540 1352C532.8 1332 581.333 1254 606.5 1217.5Z"
@@ -48,10 +55,13 @@
     d="M779 1558L768 1536L920 1520.5L1073 1488.5L1206.5 1446.5L1272.5 1424.5L1323 1397.5L1353.5 1354L1374.5 1352V1382.5L1305.5 1430.5L1170 1488.5L971 1546L779 1558Z"
     stroke="black"
   />
-  <path d="M702.5 1229.5L753.5 1203L720.5 1441L628.5 1429L586 1383.5L599 1315L648 1225.5L702.5 1229.5Z" fill={arm} />
+  <path
+    d="M702.5 1229.5L753.5 1203L720.5 1441L628.5 1429L586 1383.5L599 1315L648 1225.5L702.5 1229.5Z"
+    fill={$costumeColorable?.jacketClose?.arm || '#fff'}
+  />
   <path
     d="M1229 1150L1216 1042L1299 1030L1411 1047.5L1421.5 1069.5L1401.5 1226L1319 1256L1289 1234.5L1229 1150Z"
-    fill={arm}
+    fill={$costumeColorable?.jacketClose?.arm || '#fff'}
   />
   <path
     d="M702.5 1229.5L753.5 1203L720.5 1441L628.5 1429L586 1383.5L599 1315L648 1225.5L702.5 1229.5Z"

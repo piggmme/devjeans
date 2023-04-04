@@ -24,6 +24,8 @@
   // 이미지/아이템/드로잉 위치 조정을 위해 소수점 8자리까지 표현
   fabric.Object.NUM_FRACTION_DIGITS = 8
 
+  let initFinish = false
+
   const getWidth = () => {
     if (window.innerWidth < 600) return window.innerWidth
     return 600
@@ -47,6 +49,7 @@
 
     if ($savedCanvas) {
       setSavedCanvas()
+      initFinish = true
       return
     }
 
@@ -59,6 +62,7 @@
         img.set('itemType', 'bunny')
         $canvas.add(img)
         $canvas.renderAll()
+        initFinish = true
       },
       {crossOrigin: 'anonymous'},
     )
@@ -121,7 +125,7 @@
   }
 
   // 아이템 추가 및 삭제
-  $: if ($canvas && !$savedCanvas) {
+  $: if (initFinish && !$savedCanvas) {
     const objects = $canvas.getObjects()
 
     for (const costume in $hasCostume) {

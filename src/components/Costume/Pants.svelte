@@ -1,5 +1,5 @@
 <script lang="ts">
-  let fill = '#0500FF'
+  import {costumeColorable} from 'src/store/costume'
 </script>
 
 <svg
@@ -13,7 +13,7 @@
 >
   <path
     d="M748.5 1740C695.3 1642 739.333 1553.17 768 1521L774.5 1527.5L1001.5 1501.5L1163.5 1463L1306 1401L1347 1348.5H1370.5L1477.5 1401L1520 1511.5L1509 1598L1463 1705L1360.5 1801L1261 1833.5L1178.5 1818.5C1100.1 1800.9 1063.83 1727.5 1055.5 1693H1001.5L964.5 1767L839.5 1781.5C801.5 1781.5 763 1753.83 748.5 1740Z"
-    {fill}
+    fill={$costumeColorable?.pants?.fill || '#ff0'}
     stroke="black"
   />
   <rect width="2048" height="2048" fill="url(#pattern0)" />
