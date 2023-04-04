@@ -117,7 +117,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    margin: 20px auto;
+    padding: 20px;
   }
 
   button {

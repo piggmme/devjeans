@@ -60,3 +60,7 @@ li {
   --toastContainerBottom: 5rem;
   --toastContainerLeft: calc(50vw - 8rem);
 }
+
+.color {
+  border: 1px solid #ccc !important;
+}

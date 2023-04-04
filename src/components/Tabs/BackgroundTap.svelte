@@ -87,12 +87,12 @@
   }
 
   .container {
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin: 20px auto;
   }
   ul {
     display: flex;
