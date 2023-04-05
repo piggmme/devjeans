@@ -132,7 +132,7 @@ export const InitHasCostume = {
   shirts: true,
   pants: true,
   jacketClose: false,
-  jacketOpen: false,
+  jacketOpen: true,
   shoes: true,
 }
 
@@ -275,7 +275,7 @@ export const costumeInfo: CostumeInfosType = {
   jacketOpen: {
     type: 'colorable',
     title: '야구잠바 2',
-    isHas: false,
+    isHas: true,
     zIndex: 100,
     src: jacketOpenImg,
   },
@@ -377,6 +377,8 @@ const uploadColorableCostume = (costume: string, lineImg: HTMLImageElement, colo
   })
   group.scaleToWidth($canvas.width)
   $canvas.add(group)
+
+  console.log('업로드 완료', costume)
 
   sortByZindex()
 
