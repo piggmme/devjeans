@@ -54,7 +54,7 @@
     const originFile = new File([originBlob], 'bunny.jpg', {type: originBlob.type})
 
     // 썸네일 이미지
-    const thumbnailResult = await fetch(origin)
+    const thumbnailResult = await fetch(thumbnail)
     const thumbnailBlob = await thumbnailResult.blob()
     const thumbnailFile = new File([thumbnailBlob], 'bunny.jpg', {type: thumbnailBlob.type})
 
