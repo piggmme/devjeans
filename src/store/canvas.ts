@@ -294,7 +294,6 @@ export const toggleCostume = (target: CostumeKeys) => {
 export const resetCostume = (target: CategoryKey) => {
   hasCostume.update((costume) => {
     categoryCostume[target].forEach((key) => {
-      console.log(key, costumeInfo[key])
       costume[key].isHas = InitHasCostume[key]
     })
     return costume
@@ -335,13 +334,13 @@ export const addCostume = (costume: CostumeKeys) => {
     }
   })
 
-  fabric.Image.fromURL('data:image/svg+xml;utf8,' + encodeURIComponent(svgString), function (colorableImg) {
-    colorableImg.scaleToWidth($width)
-    colorableImg.selectable = false
+  fabric.Image.fromURL(costumeInfo[costume].src, function (lineImg) {
+    lineImg.scaleToWidth($width)
+    lineImg.selectable = false
 
-    fabric.Image.fromURL(costumeInfo[costume].src, function (lineImg) {
-      lineImg.scaleToWidth($width)
-      lineImg.selectable = false
+    fabric.Image.fromURL('data:image/svg+xml;utf8,' + encodeURIComponent(svgString), function (colorableImg) {
+      colorableImg.scaleToWidth($width)
+      colorableImg.selectable = false
 
       // lineImg와 img 를 그룹으로 묶음
       const group = new fabric.Group([colorableImg, lineImg], {
@@ -356,7 +355,6 @@ export const addCostume = (costume: CostumeKeys) => {
 
       sortByZindex()
       $canvas.renderAll()
-      console.log('objects: ', $canvas.getObjects())
     })
   })
 }
