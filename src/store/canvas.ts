@@ -378,8 +378,6 @@ const uploadColorableCostume = (costume: string, lineImg: HTMLImageElement, colo
   group.scaleToWidth($canvas.width)
   $canvas.add(group)
 
-  console.log('업로드 완료', costume)
-
   sortByZindex()
 
   isReadyCostume.update((prev) => ({...prev, [costume]: false}))
@@ -395,12 +393,19 @@ export const removeCostume = (costume: CostumeKeys) => {
 
 export const sortByZindex = () => {
   const $canvas = get(canvas)
+  const objects = $canvas.getObjects()
 
-  const costumeList = $canvas.getObjects().filter((obj) => obj.costume)
+  const costumeList = objects.filter((obj) => obj.costume)
   costumeList.sort((a, b) => {
     return costumeInfo[a.costume].zIndex - costumeInfo[b.costume].zIndex
   })
   costumeList.forEach((obj) => {
     $canvas.moveTo(obj, costumeInfo[obj.costume].zIndex)
   })
+
+  for (const obj of objects) {
+    if (!obj.itemType) $canvas.bringToFront(obj)
+
+    if (obj.itemType === 'photo') $canvas.bringToFront(obj)
+  }
 }
