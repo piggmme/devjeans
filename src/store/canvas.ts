@@ -21,6 +21,12 @@ import watchImg from 'src/assets/costume/watch.png'
 import cookieImg from 'src/assets/costume/cookie.png'
 import hardHatImg from 'src/assets/costume/hardHat.png'
 
+import jacketCloseImg from 'src/assets/costume/default/jacketClose.png'
+import jacketOpenImg from 'src/assets/costume/default/jacketOpen.png'
+import pantsImg from 'src/assets/costume/default/pants.png'
+import shirtsImg from 'src/assets/costume/default/shirts.png'
+import shoesImg from 'src/assets/costume/default/shoes.png'
+
 export const isReadyCostume = writable(false)
 
 export const background = writable(backgrounds[getRandomInt(0, backgrounds.length - 1)])
@@ -34,6 +40,7 @@ export const width = writable(600)
 export type CostumeKeys = keyof typeof costumeInfo
 
 export type InfoType = {
+  type: 'item'
   title: string
   src: string
   isHas: boolean
@@ -41,7 +48,9 @@ export type InfoType = {
 }
 
 export type ColorableInfoType = {
+  type: 'colorable'
   title: string
+  src: string
   isHas: boolean
   zIndex?: number
 }
@@ -123,60 +132,70 @@ export const InitHasCostume = {
 
 export const costumeInfo: CostumeInfosType = {
   glasses: {
+    type: 'item',
     title: '안경',
     src: glassesImg,
     isHas: false,
     zIndex: 1000,
   },
   hair: {
+    type: 'item',
     title: '앞머리',
     src: hairImg,
     isHas: false,
     zIndex: 1000,
   },
   laptop: {
+    type: 'item',
     title: '노트북',
     src: laptopImg,
     isHas: false,
     zIndex: 1000,
   },
   coffee: {
+    type: 'item',
     title: '커피',
     src: coffeeImg,
     isHas: false,
     zIndex: 1000,
   },
   goggles: {
+    type: 'item',
     title: '고글',
     src: gogglesImg,
     isHas: false,
     zIndex: 1000,
   },
   headphones: {
+    type: 'item',
     title: '헤드폰',
     src: headphonesImg,
     isHas: false,
     zIndex: 1000,
   },
   hairband: {
+    type: 'item',
     title: '농구 머리띠',
     src: hairbandImg,
     isHas: false,
     zIndex: 1000,
   },
   basketballVest: {
+    type: 'item',
     title: '농구 조끼',
     src: basketballVestImg,
     isHas: false,
     zIndex: 10,
   },
   basketball: {
+    type: 'item',
     title: '농구 공',
     src: basketballImg,
     isHas: false,
     zIndex: 1000,
   },
   airpot: {
+    type: 'item',
     title: '에어팟',
     src: airpotImg,
     isHas: false,
@@ -184,36 +203,42 @@ export const costumeInfo: CostumeInfosType = {
   },
 
   ballCap: {
+    type: 'item',
     title: '볼캡',
     src: ballCapImg,
     isHas: false,
     zIndex: 1000,
   },
   darkCircles: {
+    type: 'item',
     title: '다크써클',
     src: darkCirclesImg,
     isHas: false,
     zIndex: 100,
   },
   hardHat: {
+    type: 'item',
     title: '안전모',
     src: hardHatImg,
     isHas: false,
     zIndex: 1000,
   },
   toast: {
+    type: 'item',
     title: '토스트',
     src: toastImg,
     isHas: false,
     zIndex: 1000,
   },
   watch: {
+    type: 'item',
     title: '애플워치',
     src: watchImg,
     isHas: false,
     zIndex: 1000,
   },
   cookie: {
+    type: 'item',
     title: '쿠키',
     src: cookieImg,
     isHas: false,
@@ -221,29 +246,39 @@ export const costumeInfo: CostumeInfosType = {
   },
 
   shirts: {
+    type: 'colorable',
     title: '반팔',
     isHas: true,
     zIndex: 11,
+    src: shirtsImg,
   },
   pants: {
+    type: 'colorable',
     title: '바지',
     isHas: true,
     zIndex: 10,
+    src: pantsImg,
   },
   jacketClose: {
+    type: 'colorable',
     title: '야구잠바 1',
     isHas: false,
     zIndex: 100,
+    src: jacketCloseImg,
   },
   jacketOpen: {
+    type: 'colorable',
     title: '야구잠바 2',
     isHas: false,
     zIndex: 100,
+    src: jacketOpenImg,
   },
   shoes: {
+    type: 'colorable',
     title: '신발',
     isHas: true,
     zIndex: 100,
+    src: shoesImg,
   },
 }
 
@@ -271,7 +306,7 @@ export const addCostume = (costume: CostumeKeys) => {
   const $width = get(width)
 
   // 색상 커스텀 불가능한 아이템
-  if (costumeInfo[costume].src) {
+  if (costumeInfo[costume].type === 'item') {
     const currentCostume = costumeInfo[costume] as InfoType
     let costumeImg = currentCostume.src
 
@@ -300,16 +335,29 @@ export const addCostume = (costume: CostumeKeys) => {
     }
   })
 
-  fabric.Image.fromURL('data:image/svg+xml;utf8,' + encodeURIComponent(svgString), function (img) {
-    img.scaleToWidth($width)
-    img.scaleToWidth($width)
-    img.set('itemType', 'costume')
-    img.set('costume', costume)
-    img.selectable = false
+  fabric.Image.fromURL('data:image/svg+xml;utf8,' + encodeURIComponent(svgString), function (colorableImg) {
+    colorableImg.scaleToWidth($width)
+    colorableImg.selectable = false
 
-    $canvas.add(img)
-    sortByZindex()
-    $canvas.renderAll()
+    fabric.Image.fromURL(costumeInfo[costume].src, function (lineImg) {
+      lineImg.scaleToWidth($width)
+      lineImg.selectable = false
+
+      // lineImg와 img 를 그룹으로 묶음
+      const group = new fabric.Group([colorableImg, lineImg], {
+        left: 0,
+        top: 0,
+        selectable: false,
+        itemType: 'costume',
+        costume,
+      })
+      group.scaleToWidth($width)
+      $canvas.add(group)
+
+      sortByZindex()
+      $canvas.renderAll()
+      console.log('objects: ', $canvas.getObjects())
+    })
   })
 }
 
