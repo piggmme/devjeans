@@ -102,6 +102,11 @@
     <img class={$resultBunny?.origin ? '' : 'default'} src={$resultBunny?.origin || devJeans} alt="데브진스" />
     <div class="toolbar">
       <Noti icon="❤️" text="멋진 제목을 입력하고 나의 버니를 자랑해 보세요." />
+      <Noti
+        style="background-color: #fffcec;"
+        icon="⚠️"
+        text="타인에게 불쾌감을 주거나 뉴진스의 이미지를 훼손할 수 있는 사진은 경고 없이 삭제 처리 될 수 있습니다."
+      />
       <div class="input-wrapper">
         <input placeholder="나의 귀여운 버니 🐰" class="title" type="text" bind:value={title} />
 
