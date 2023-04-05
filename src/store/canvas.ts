@@ -27,7 +27,13 @@ import pantsImg from 'src/assets/costume/default/pants.png'
 import shirtsImg from 'src/assets/costume/default/shirts.png'
 import shoesImg from 'src/assets/costume/default/shoes.png'
 
-export const isReadyCostume = writable(false)
+export const isReadyCostume = writable({
+  shirts: false,
+  pants: false,
+  jacketClose: false,
+  jacketOpen: false,
+  shoes: false,
+})
 
 export const background = writable(backgrounds[getRandomInt(0, backgrounds.length - 1)])
 export const backgroundImage = writable('')
@@ -327,6 +333,8 @@ export const addCostume = (costume: CostumeKeys) => {
   const svg = document.getElementById(costume)
   const svgString = new XMLSerializer().serializeToString(svg)
 
+  console.log({objects: $canvas.getObjects()})
+
   // 색상값을 바꾸는 경우를 위해 추가함
   $canvas.getObjects().forEach((obj) => {
     if (obj.costume === costume) {
@@ -334,29 +342,48 @@ export const addCostume = (costume: CostumeKeys) => {
     }
   })
 
-  fabric.Image.fromURL(costumeInfo[costume].src, function (lineImg) {
-    lineImg.scaleToWidth($width)
-    lineImg.selectable = false
+  isReadyCostume.update((prev) => ({...prev, [costume]: false}))
 
-    fabric.Image.fromURL('data:image/svg+xml;utf8,' + encodeURIComponent(svgString), function (colorableImg) {
-      colorableImg.scaleToWidth($width)
-      colorableImg.selectable = false
+  const lineImg = new Image()
+  lineImg.src = costumeInfo[costume].src
 
-      // lineImg와 img 를 그룹으로 묶음
-      const group = new fabric.Group([colorableImg, lineImg], {
-        left: 0,
-        top: 0,
-        selectable: false,
-        itemType: 'costume',
-        costume,
-      })
-      group.scaleToWidth($width)
-      $canvas.add(group)
+  const colorableImg = new Image()
+  colorableImg.src = 'data:image/svg+xml;utf8,' + encodeURIComponent(svgString)
 
-      sortByZindex()
-      $canvas.renderAll()
-    })
+  lineImg.onload = () => {
+    uploadColorableCostume(costume, lineImg, colorableImg)
+  }
+
+  colorableImg.onload = () => {
+    uploadColorableCostume(costume, lineImg, colorableImg)
+  }
+}
+
+const uploadColorableCostume = (costume: string, lineImg: HTMLImageElement, colorableImg: HTMLImageElement) => {
+  const $canvas = get(canvas)
+  const isReady = get(isReadyCostume)
+  if (!isReady[costume]) {
+    isReadyCostume.update((prev) => ({...prev, [costume]: true}))
+    return
+  }
+
+  const line = new fabric.Image(lineImg)
+  const colorable = new fabric.Image(colorableImg)
+
+  const group = new fabric.Group([colorable, line], {
+    left: 0,
+    top: 0,
+    selectable: false,
+    itemType: 'costume',
+    costume,
   })
+  group.scaleToWidth($canvas.width)
+  $canvas.add(group)
+
+  console.log('업로드 완료', costume)
+  sortByZindex()
+
+  isReadyCostume.update((prev) => ({...prev, [costume]: false}))
 }
 
 export const removeCostume = (costume: CostumeKeys) => {
