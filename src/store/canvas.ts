@@ -333,8 +333,6 @@ export const addCostume = (costume: CostumeKeys) => {
   const svg = document.getElementById(costume)
   const svgString = new XMLSerializer().serializeToString(svg)
 
-  console.log({objects: $canvas.getObjects()})
-
   // 색상값을 바꾸는 경우를 위해 추가함
   $canvas.getObjects().forEach((obj) => {
     if (obj.costume === costume) {
@@ -380,7 +378,6 @@ const uploadColorableCostume = (costume: string, lineImg: HTMLImageElement, colo
   group.scaleToWidth($canvas.width)
   $canvas.add(group)
 
-  console.log('업로드 완료', costume)
   sortByZindex()
 
   isReadyCostume.update((prev) => ({...prev, [costume]: false}))
