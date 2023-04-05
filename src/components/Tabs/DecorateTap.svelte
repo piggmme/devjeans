@@ -32,10 +32,6 @@
   }
 </script>
 
-{#if activeCategory === '기본'}
-  <Costume />
-{/if}
-
 <div class="container">
   <h2>아이템을 추가해 꾸며 주세요!</h2>
 

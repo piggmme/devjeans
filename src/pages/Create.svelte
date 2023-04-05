@@ -14,13 +14,13 @@
     removeCostume,
     addCostume,
     backgroundImage,
-    isReadyCostume,
   } from 'src/store/canvas'
   import {activeTabValue} from 'src/store/tab'
   import {TabValue} from 'src/const/tab'
   import Layout from 'src/components/Layout/Layout.svelte'
   import {querystring} from 'svelte-spa-router'
   import {resultBunny} from 'src/store/resultBunny'
+  import Costume from 'src/components/Costume/Costume.svelte'
 
   // 이미지/아이템/드로잉 위치 조정을 위해 소수점 8자리까지 표현
   fabric.Object.NUM_FRACTION_DIGITS = 8
@@ -126,19 +126,19 @@
   }
 
   // 아이템 추가 및 삭제
-  $: if (initFinish && !$savedCanvas && $isReadyCostume) {
+  $: if (initFinish && !$savedCanvas) {
     const objects = $canvas.getObjects()
 
     for (const costume in $hasCostume) {
       const hasObj = objects.find((obj) => obj.costume === costume)
-
-      console.log({has: !hasObj && $hasCostume[costume].isHas, costume})
 
       if (hasObj && !$hasCostume[costume].isHas) removeCostume(costume as CostumeKeys)
       if (!hasObj && $hasCostume[costume].isHas) addCostume(costume as CostumeKeys)
     }
   }
 </script>
+
+<Costume />
 
 <Layout title="~개발진스 짤 만들어 쓰기~">
   <div class:isDisableCanvas>

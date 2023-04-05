@@ -1,15 +1,9 @@
 <script lang="ts">
-  import {isReadyCostume} from 'src/store/canvas'
-  import {onMount} from 'svelte'
   import JacketClose from './JacketClose.svelte'
   import JacketOpen from './JacketOpen.svelte'
   import Pants from './Pants.svelte'
   import Shirts from './Shirts.svelte'
   import Shoes from './Shoes.svelte'
-
-  onMount(() => {
-    $isReadyCostume = true
-  })
 </script>
 
 <div class="hidden">
