@@ -132,7 +132,7 @@ export const InitHasCostume = {
   shirts: true,
   pants: true,
   jacketClose: false,
-  jacketOpen: true,
+  jacketOpen: false,
   shoes: true,
 }
 
@@ -275,7 +275,7 @@ export const costumeInfo: CostumeInfosType = {
   jacketOpen: {
     type: 'colorable',
     title: '야구잠바 2',
-    isHas: true,
+    isHas: false,
     zIndex: 100,
     src: jacketOpenImg,
   },
