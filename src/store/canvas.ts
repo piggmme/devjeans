@@ -317,7 +317,6 @@ export const addCostume = (costume: CostumeKeys) => {
 
     fabric.Image.fromURL(costumeImg, function (img) {
       img.scaleToWidth($width)
-      img.scaleToWidth($width)
       img.selectable = false
 
       img.set('itemType', 'costume')
@@ -376,6 +375,7 @@ const uploadColorableCostume = (costume: string, lineImg: HTMLImageElement, colo
     costume,
   })
   group.scaleToWidth($canvas.width)
+  // FIXME 사파리 및 애플 모바일에서 에러 발생
   $canvas.add(group)
 
   sortByZindex()
