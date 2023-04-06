@@ -58,5 +58,10 @@
     "description2": "Select the photo you want to delete and click the Remove button.",
     "add": "Add",
     "remove": "Remove"
+  },
+  "drawingTap": {
+    "title": "Draw a picture!",
+    "description1": "Choose a color and draw it.",
+    "description2": "Select what you want to erase and click the eraser to erase it."
   }
 }
