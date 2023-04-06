@@ -35,7 +35,6 @@
 
 <style>
   h1 {
-    font-family: 'Pretendard', sans-serif;
     font-size: 30px;
     font-weight: 800;
     text-align: center;
