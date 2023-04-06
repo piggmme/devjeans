@@ -50,5 +50,12 @@
     "remove": "除去",
     "backgroundColor": "背景色",
     "backgroundImage": "背景画像"
+  },
+  "photoTap": {
+    "title": "写真を追加！",
+    "description1": "写真を移動してサイズを変更します",
+    "description2": "削除する写真を選択し、 [削除] ボタンをクリックします",
+    "add": "追加",
+    "remove": "除去"
   }
 }

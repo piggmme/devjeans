@@ -51,5 +51,12 @@
     "remove": "Remove",
     "backgroundColor": "Background Color",
     "backgroundImage": "Background Image"
+  },
+  "photoTap": {
+    "title": "Add a photo!",
+    "description1": "Move and resize the photo.",
+    "description2": "Select the photo you want to delete and click the Remove button.",
+    "add": "Add",
+    "remove": "Remove"
   }
 }

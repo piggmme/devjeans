@@ -1,5 +1,6 @@
 <script lang="ts">
   import {fabric} from 'fabric'
+  import { t } from 'svelte-i18n'
   import {logEvent} from 'firebase/analytics'
   import {analytics} from 'src/api/firebase/firebase'
   import {background, canvas, width} from 'src/store/canvas'
@@ -78,20 +79,20 @@
 </script>
 
 <div class="container">
-  <h2>사진을 추가해 보세요!</h2>
+  <h2>{$t('photoTap.title')}</h2>
 
   <div class="detail">
-    <p>사진을 이동하고 크기를 조절해 보세요.</p>
-    <p>삭제하고 싶은 사진은 선택 후 제거 버튼을 클릭하세요.</p>
+    <p>{$t('photoTap.description1')}</p>
+    <p>{$t('photoTap.description2')}</p>
   </div>
 
   <div class="photo-buttons">
     <button
       on:click={() => {
         inputImage.click()
-      }}>추가</button
+      }}>{$t('photoTap.add')}</button
     >
-    <button on:click={removeImage} class:hasActiveObject>제거</button>
+    <button on:click={removeImage} class:hasActiveObject>{$t('photoTap.remove')}</button>
   </div>
   <input bind:this={inputImage} on:change={handleAddImage} type="file" accept="image/*" style="display: none" />
 </div>

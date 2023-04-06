@@ -50,5 +50,12 @@
     "remove": "제거",
     "backgroundColor": "배경색",
     "backgroundImage": "배경 이미지"
+  },
+  "photoTap": {
+    "title": "사진을 추가해 보세요!",
+    "description1": "사진을 이동하고 크기를 조절해 보세요.",
+    "description2": "삭제하고 싶은 사진은 선택 후 제거 버튼을 클릭하세요.",
+    "add": "추가",
+    "remove": "제거"
   }
 }
