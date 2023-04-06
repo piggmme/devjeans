@@ -77,5 +77,9 @@
     "route": "View",
     "prevBunny": "Prev Bunny",
     "nextBunny": "Next Bunny"
+  },
+  "rank": {
+    "title": "The best Bunny!",
+    "subTitle": "Check out bunny who got a lot of likes!"
   }
 }
