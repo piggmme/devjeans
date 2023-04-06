@@ -13,6 +13,6 @@ const fallbackLocale = 'ko';
 
 init({
     fallbackLocale,
-    initialLocale: 'ko'
+    initialLocale: 'en'
     // initialLocale: getLocaleFromNavigator() || fallbackLocale,
 });

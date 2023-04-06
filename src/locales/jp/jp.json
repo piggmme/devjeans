@@ -42,5 +42,13 @@
     "jacketClose": "野球ジャンパー 1",
     "jacketOpen": "野球ジャンパー 2",
     "shoes": "靴"
+  },
+  "backgroundTap": {
+    "title": "背景を作ってみてください！",
+    "select": "選択",
+    "image": "画像",
+    "remove": "除去",
+    "backgroundColor": "背景色",
+    "backgroundImage": "背景画像"
   }
 }

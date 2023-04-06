@@ -43,5 +43,13 @@
     "jacketClose": "Baseball Jacket 1",
     "jacketOpen": "Baseball Jacket 2",
     "shoes": "Shoes"
+  },
+  "backgroundTap": {
+    "title": "Decorate the background!",
+    "select": "Select",
+    "image": "Image",
+    "remove": "Remove",
+    "backgroundColor": "Background Color",
+    "backgroundImage": "Background Image"
   }
 }

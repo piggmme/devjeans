@@ -42,5 +42,13 @@
     "jacketClose": "야구잠바 1",
     "jacketOpen": "야구잠바 2",
     "shoes": "신발"
+  },
+  "backgroundTap": {
+    "title": "배경을 꾸며 보세요!",
+    "select": "선택하기",
+    "image": "이미지",
+    "remove": "제거",
+    "backgroundColor": "배경색",
+    "backgroundImage": "배경 이미지"
   }
 }
