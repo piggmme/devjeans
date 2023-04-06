@@ -136,6 +136,12 @@
       if (hasObj && !$hasCostume[costume].isHas) removeCostume(costume as CostumeKeys)
       if (!hasObj && $hasCostume[costume].isHas) addCostume(costume as CostumeKeys)
     }
+
+    $canvas.getObjects().forEach((obj) => {
+      if (obj.itemType === 'bunny' || obj.itemType === 'costume') {
+        obj.selectable = false
+      }
+    })
   }
   console.log()
 </script>
