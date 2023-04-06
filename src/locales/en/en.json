@@ -2,6 +2,10 @@
   "main": {
     "title": "Make your own bunny meme"
   },
+  "common": {
+    "requireLogin": "This service requires a login.",
+    "deleteBunny": "Bunny deleted."
+  },
   "toolbar": {
     "decorate": "Decorate",
     "background": "Background",
@@ -81,5 +85,16 @@
   "rank": {
     "title": "The best Bunny!",
     "subTitle": "Check out bunny who got a lot of likes!"
+  },
+  "detail": {
+    "title": "View pictures",
+    "delete": "Delete",
+    "placeholder": "My own Bunny"
+  },
+  "date": {
+    "ago": "just a moment ago",
+    "minute": "minutes ago",
+    "hour": "hours ago",
+    "day": "days ago"
   }
 }

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {t} from 'svelte-i18n';
+  import {t} from 'svelte-i18n'
   import Layout from 'src/components/Layout/Layout.svelte'
   import type {PhotoRes} from 'src/types/photo'
   import Gallery from 'src/components/Photo/Gallery.svelte'

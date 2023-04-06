@@ -2,6 +2,10 @@
   "main": {
     "title": "~개발진스 짤 만들어 쓰기~"
   },
+  "common": {
+    "requireLogin": "로그인이 필요한 서비스입니다.",
+    "deleteBunny": "버니가 삭제되었습니다."
+  },
   "toolbar": {
     "decorate": "꾸미기",
     "background": "배경",
@@ -80,5 +84,17 @@
   "rank": {
     "title": "최고의 버니들!",
     "subTitle": "좋아요를 많이 받은 버니들을 확인해 보세요!"
+  },
+  "detail": {
+    "title": "사진 보기",
+    "delete": "삭제",
+    "placeholder": "나만의 버니"
+  },
+  "date": {
+    "ago": "방금 전",
+    "minute": "분 전",
+    "hour": "시간 전",
+    "day": "일 전"
   }
+
 }

@@ -2,6 +2,10 @@
   "main": {
     "title": "自分だけのバニーミームを作りなさい"
   },
+  "common": {
+    "requireLogin": "このサービスにはログインが必要です",
+    "deleteBunny": "ウサギが削除されました。"
+  },
   "toolbar": {
     "decorate": "飾り付け",
     "background": "背景",
@@ -80,5 +84,16 @@
   "rank": {
     "title": "最高のウサギたち！",
     "subTitle": "いいねをたくさんもらったウサギたちを確認してみてください！"
+  },
+  "detail": {
+    "title": "写真を見る",
+    "delete": "削除",
+    "placeholder": "私だけのウサギ"
+  },
+  "date": {
+    "ago": "先程",
+    "minute": "分前",
+    "hour": "時間前",
+    "day": "日前"
   }
 }
