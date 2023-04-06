@@ -96,4 +96,10 @@
     stroke="black"
   />
   <rect width="2048" height="2048" fill="url(#pattern0)" />
+  <defs>
+    <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+      <use xlink:href="#image0_5_28" transform="scale(0.000488281)" />
+    </pattern>
+    <image id="image0_5_28" width="2048" height="2048" />
+  </defs>
 </svg>

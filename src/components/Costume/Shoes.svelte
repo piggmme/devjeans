@@ -52,4 +52,10 @@
   <path d="M1401.5 1838.5L1331.5 1822.5L1381.5 1796.5L1421.5 1809.5L1427.5 1827L1401.5 1838.5Z" stroke="black" />
   <path d="M1450.5 1784L1405 1780.5L1427.5 1756.5L1459 1766.5L1450.5 1784Z" stroke="black" />
   <rect width="2048" height="2048" fill="url(#pattern0)" />
+  <defs>
+    <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+      <use xlink:href="#image0_5_28" transform="scale(0.000488281)" />
+    </pattern>
+    <image id="image0_5_28" width="2048" height="2048" />
+  </defs>
 </svg>
