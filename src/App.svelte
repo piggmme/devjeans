@@ -47,10 +47,4 @@
   <Router {routes} />
 </QueryClientProvider>
 
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 
-  :global(body) {
-    font-family: 'Pretendard', sans-serif;
-  }
-</style>
