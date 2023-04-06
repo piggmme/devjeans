@@ -3,7 +3,7 @@
 
   export let title = ''
   import {get} from 'svelte/store';
-  import {locale} from 'svelte-i18n';
+  import {t, locale} from 'svelte-i18n';
   import {width} from 'src/store/canvas'
   import Noti from '../Noti.svelte'
   import Nav from './Nav.svelte'
@@ -15,6 +15,7 @@
   const handleLocaleChange = (e) => {
     locale.set(e.target.value)
     currentLocale = e.target.value
+    document.title = $t('main.title')
   }
 </script>
 
