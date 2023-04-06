@@ -1,6 +1,6 @@
 <script lang="ts">
   import {createQuery} from '@tanstack/svelte-query'
-  import devJeans from 'src/assets/dev-jeans.png'
+  import defaultBunny from 'src/assets/default-bunny.png'
   import Layout from 'src/components/Layout/Layout.svelte'
   import MyLogin from 'src/components/MyPage/MyLogin.svelte'
   import Profile from 'src/components/MyPage/Profile.svelte'
@@ -25,7 +25,7 @@
         <div class="no-bunny">
           <h2>나의 버니가 없어요!</h2>
           <span>나만의 버니를 업로드해 보세요.</span>
-          <img src={devJeans} alt="버니" class="no-bunny-img" />
+          <img src={defaultBunny} alt="버니" class="no-bunny-img" />
         </div>
       {:else}
         <div class="gallery">

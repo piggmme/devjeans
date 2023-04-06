@@ -6,7 +6,7 @@
   import {params, pop, replace} from 'svelte-spa-router'
   import {useQueryClient, createQuery, createMutation} from '@tanstack/svelte-query'
   import {userInfo} from 'src/store/user'
-  import devJeans from 'src/assets/dev-jeans.png'
+  import defaultBunny from 'src/assets/default-bunny.png'
   import formatDate from 'src/lib/formatDate'
   import {debounce} from 'lodash'
   import {toast} from '@zerodevx/svelte-toast'
@@ -107,7 +107,7 @@
         isLoaded = true
       }}
     />
-    <img class="default {isLoaded ? 'hidden' : ''}" src={devJeans} alt="버니" />
+    <img class="default {isLoaded ? 'hidden' : ''}" src={defaultBunny} alt="버니" />
 
     <div class="description">
       <div class="like">
