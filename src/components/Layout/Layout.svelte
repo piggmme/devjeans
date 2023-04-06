@@ -1,18 +1,21 @@
 <script lang="ts">
-  import type {ChangeEventHandler} from "svelte/elements";
+  import {locale, t} from 'svelte-i18n';
+  import {width} from 'src/store/canvas'
+  import Nav from './Nav.svelte'
+  import {onMount} from "svelte";
 
   export let title = ''
-  import {get} from 'svelte/store';
-  import {t, locale} from 'svelte-i18n';
-  import {width} from 'src/store/canvas'
-  import Noti from '../Noti.svelte'
-  import Nav from './Nav.svelte'
 
   $: isLocalhost = window.location.hostname === 'localhost'
-  let currentLocale = get(locale)
+  let currentLocale = localStorage.getItem('devJeansLocale') || 'ko-KR'
 
+  onMount(() => {
+    document.title = $t('main.title')
+    locale.set(currentLocale)
+  })
 
   const handleLocaleChange = (e) => {
+    localStorage.setItem('devJeansLocale', e.target.value)
     locale.set(e.target.value)
     currentLocale = e.target.value
     document.title = $t('main.title')
