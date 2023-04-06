@@ -10,7 +10,7 @@
 
   $: isLocalhost = window.location.hostname === 'localhost'
   let currentLocale = get(locale)
-  console.log(currentLocale)
+
 
   const handleLocaleChange = (e) => {
     locale.set(e.target.value)
