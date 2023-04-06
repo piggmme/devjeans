@@ -1,44 +1,25 @@
 <script lang="ts">
-  import {fabric} from 'fabric'
   import {logEvent} from 'firebase/analytics'
   import {analytics} from 'src/api/firebase/firebase'
-  import {onMount} from 'svelte'
-  import {canvas, width, hasCostume, costumeInfo, toggleCostume, resetCostume, type CostumeKeys} from 'src/store/canvas'
+  import {
+    hasCostume,
+    costumeInfo,
+    toggleCostume,
+    resetCostume,
+    type CostumeKeys,
+    categories,
+    categoryCostume,
+    type CategoryKey,
+  } from 'src/store/canvas'
+  import Costume from '../Costume/Costume.svelte'
+  import {costumeColorable, CostumeTitle, setCostumeColorable, type CostumeColorableKey} from 'src/store/costume'
+  import ColorPicker from 'svelte-awesome-color-picker'
 
-  onMount(() => {
-    logEvent(analytics, '꾸미기 탭 진입')
-  })
+  let activeCategory: CategoryKey = '기본'
+  let activeCostume: CostumeKeys = 'shirts'
 
-  const addCostume = (costume: CostumeKeys) => {
-    let costumeImg = costumeInfo[costume].src
-    logEvent(analytics, `${costumeInfo[costume].title} 추가`)
-
-    fabric.Image.fromURL(costumeImg, function (img) {
-      img.scaleToWidth($width)
-      img.scaleToWidth($width)
-      img.selectable = false
-
-      img.set('itemType', 'costume')
-      img.set('costume', costume)
-      $canvas.add(img)
-
-      // 캔버스의 오브젝트들을 순회하며 basketball은 가장 위로 올림
-      // TODO. index를 costume 마다 관리해야 함
-      $canvas.getObjects().forEach((obj) => {
-        if (obj.costume === 'basketball' || obj.costume === 'laptop') {
-          $canvas.moveTo(obj, 100)
-        }
-      })
-
-      $canvas.renderAll()
-    })
-  }
-
-  const removeCostume = (costume: CostumeKeys) => {
-    const objects = $canvas.getObjects()
-    logEvent(analytics, `${costumeInfo[costume].title} 제거`)
-    const costumeObjects = objects.filter((obj) => obj.costume === costume)
-    costumeObjects.forEach((obj) => $canvas.remove(obj))
+  const clickCostume = (costume: string) => {
+    activeCostume = costume as CostumeKeys
   }
 
   const toggleActive = (costume: string) => () => {
@@ -47,35 +28,129 @@
 
   const reset = () => {
     logEvent(analytics, '초기화 버튼 클릭')
-    resetCostume()
+    resetCostume(activeCategory)
   }
 </script>
 
 <div class="container">
   <h2>아이템을 추가해 꾸며 주세요!</h2>
-  <ul class="toolbar">
-    <li>
-      <button class="reset" on:click={reset}>초기화하기</button>
-    </li>
-    {#each Object.keys(costumeInfo) as costume}
-      <li>
-        <button class={$hasCostume[costume] ? 'active' : ''} on:click={toggleActive(costume)}
-          >{costumeInfo[costume].title}</button
+
+  <div class="contents">
+    <ul class="categories">
+      {#each categories as category}
+        <button
+          class="category"
+          class:active={activeCategory === category}
+          on:click={() => (activeCategory = category)}
         >
-      </li>
-    {/each}
-  </ul>
+          {category}
+        </button>
+      {/each}
+    </ul>
+
+    {#if activeCategory !== '기본'}
+      <ul class="toolbar">
+        <li>
+          <button class="item reset" on:click={reset}>초기화하기</button>
+        </li>
+        {#each categoryCostume[activeCategory] as costume}
+          <li>
+            <button class="item {$hasCostume[costume].isHas ? 'activeHas' : ''}" on:click={toggleActive(costume)}
+              >{costumeInfo[costume].title}</button
+            >
+          </li>
+        {/each}
+      </ul>
+    {/if}
+
+    {#if activeCategory === '기본'}
+      <div class="custom">
+        <ul class="toolbar">
+          <li>
+            <button class="custom-item item reset" on:click={reset}>초기화하기</button>
+          </li>
+          {#each categoryCostume[activeCategory] as costume}
+            <li>
+              <button
+                class="custom-item item {costume === activeCostume ? 'activeCostume' : ''}"
+                on:click={() => clickCostume(costume)}>{costumeInfo[costume].title}</button
+              >
+            </li>
+          {/each}
+        </ul>
+
+        <ul class="toolbar colorbar">
+          {#if !activeCostume}
+            없어요!
+          {:else}
+            <li>
+              <button
+                class="item {$hasCostume[activeCostume].isHas ? 'activeHas' : ''}"
+                on:click={toggleActive(activeCostume)}
+                >{costumeInfo[activeCostume].title} {$hasCostume[activeCostume].isHas ? '제거' : '추가'}</button
+              >
+            </li>
+            {#each Object.entries($costumeColorable?.[activeCostume]) as costume}
+              <li>
+                <div class="picker">
+                  <ColorPicker
+                    hex={costume[1]}
+                    on:input={(e) => {
+                      if (!$hasCostume[activeCostume].isHas) return
+                      if (costume[1] === e.detail.hex) return
+                      setCostumeColorable(activeCostume, {
+                        [costume[0]]: e.detail.hex,
+                      })
+                    }}
+                    isA11yClosable={false}
+                    label={CostumeTitle[costume[0]] + ' 선택하기'}
+                  />
+                </div>
+              </li>
+            {/each}
+          {/if}
+        </ul>
+      </div>
+    {/if}
+  </div>
 </div>
 
 <style>
+  .contents {
+    display: flex;
+    border-top: 1px solid #edf0f3;
+    width: 100%;
+  }
+  .categories {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    border: 1px solid #edf0f3;
+  }
+  .category {
+    border-radius: 0;
+    box-sizing: border-box;
+    padding: 10px 16px;
+    border: none;
+    background-color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    font-size: 12px;
+    word-break: keep-all;
+    border-right: none;
+  }
+  .category.active {
+    background-color: #edf0f3;
+  }
   h2 {
     font-size: 20px;
-    margin-bottom: 30px;
     word-break: keep-all;
+    padding: 20px;
   }
   .container {
     width: 100%;
-    margin: 20px auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -88,6 +163,7 @@
     align-items: center;
     width: 100%;
     flex-wrap: wrap;
+    padding: 20px;
   }
 
   .toolbar > li {
@@ -98,27 +174,62 @@
     margin: 5px;
   }
 
-  button {
-    box-sizing: border-box;
+  .custom {
+    width: 100%;
+    display: flex;
+    min-height: 200px;
+  }
+  .custom > .toolbar:first-child > li {
+    margin: 0;
+    width: 100%;
+  }
+
+  .custom > .toolbar:first-child {
+    display: flex;
+    width: 130px;
+    padding: 0;
+  }
+  .colorbar {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #edf0f3;
+  }
+
+  .item {
+    box-sizing: border-box !important;
     padding: 10px 16px;
     border: 1px solid #ccc;
     border-radius: 10px;
     background-color: #fff;
     font-weight: 700;
     cursor: pointer;
-    width: 100%;
     font-size: 12px;
+  }
+  .custom-item {
+    display: block;
+    width: 100%;
+    border-radius: 0;
   }
 
   .reset {
     color: #fff;
+    border: 1px solid #ff595e;
     background-color: #ff595e;
     border: none;
   }
-
-  button.active {
+  .item.activeHas {
     color: #fff;
     border: 1px solid rgb(80, 234, 137);
     background-color: rgb(80, 234, 137);
+  }
+
+  .custom-item {
+    border: none;
+  }
+
+  .item.activeCostume {
+    color: inherit;
+    background-color: #edf0f3;
+    border: 1px solid #a5a8aa !important;
   }
 </style>

@@ -116,6 +116,9 @@
     font-size: 20px;
     word-break: keep-all;
   }
+  .container {
+    padding: 20px;
+  }
   .container,
   .header {
     width: 100%;
@@ -126,9 +129,6 @@
   }
   .header {
     margin-bottom: 20px;
-  }
-  .container {
-    margin: 20px 0;
   }
   .sub-container {
     display: flex;

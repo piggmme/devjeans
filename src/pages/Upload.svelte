@@ -9,7 +9,7 @@
   import {ScaleOut} from 'svelte-loading-spinners'
   import Layout from 'src/components/Layout/Layout.svelte'
   import Noti from 'src/components/Noti.svelte'
-  import devJeans from 'src/assets/dev-jeans.png'
+  import defaultBunny from 'src/assets/default-bunny.png'
 
   let title
 
@@ -99,7 +99,7 @@
     {:else}
       <span class="detail">버니를 업로드해 주세요!</span>
     {/if}
-    <img class={$resultBunny?.origin ? '' : 'default'} src={$resultBunny?.origin || devJeans} alt="데브진스" />
+    <img class={$resultBunny?.origin ? '' : 'default'} src={$resultBunny?.origin || defaultBunny} alt="데브진스" />
     <div class="toolbar">
       <Noti icon="❤️" text="멋진 제목을 입력하고 나의 버니를 자랑해 보세요." />
       <Noti
