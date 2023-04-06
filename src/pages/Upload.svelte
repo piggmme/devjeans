@@ -101,6 +101,11 @@
     {/if}
     <img class={$resultBunny?.origin ? '' : 'default'} src={$resultBunny?.origin || defaultBunny} alt="데브진스" />
     <div class="toolbar">
+      <Noti
+        style="background-color: #fffcec;"
+        icon="⚠️"
+        text="타인에게 불쾌감을 주거나 뉴진스의 이미지를 훼손할 수 있는 사진은 경고 없이 삭제 처리 및 법적 책임을 지게될 수 있으며, 본 사이트에서 생성한 모든 결과물의 상업적 사용을 엄격히 금지합니다."
+      />
       <Noti icon="❤️" text="멋진 제목을 입력하고 나의 버니를 자랑해 보세요." />
       <div class="input-wrapper">
         <input placeholder="나의 귀여운 버니 🐰" class="title" type="text" bind:value={title} />
