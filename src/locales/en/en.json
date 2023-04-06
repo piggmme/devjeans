@@ -71,5 +71,11 @@
     "modalTitle": "It's a complete image.",
     "modalSave": "Save",
     "modalAlert": "This service requires a login."
+  },
+  "bestBunny": {
+    "title": "Most popular Bunny!",
+    "route": "View",
+    "prevBunny": "Prev Bunny",
+    "nextBunny": "Next Bunny"
   }
 }

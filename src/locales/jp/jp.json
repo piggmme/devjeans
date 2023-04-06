@@ -70,5 +70,11 @@
     "modalTitle": "完全なイメージです",
     "modalSave": "貯蔵",
     "modalAlert": "このサービスにはログインが必要です"
+  },
+  "bestBunny": {
+    "title": "一番人気のあるウサギたちです！",
+    "route": "ページ移動",
+    "prevBunny": "以前のウサギ",
+    "nextBunny": "次のウサギ"
   }
 }

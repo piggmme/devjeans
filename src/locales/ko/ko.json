@@ -70,5 +70,11 @@
     "modalTitle": "짜잔~ 완성된 이미지예요.",
     "modalSave": "저장하기",
     "modalAlert": "로그인이 필요한 서비스입니다."
+  },
+  "bestBunny": {
+    "title": "가장 인기가 많은 버니들이에요!",
+    "route": "보러 가기",
+    "prevBunny": "이전 버니 보기",
+    "nextBunny": "다음 버니 보기"
   }
 }
