@@ -1,16 +1,34 @@
 <script lang="ts">
+  import type {ChangeEventHandler} from "svelte/elements";
+
   export let title = ''
+  import {get} from 'svelte/store';
+  import {locale} from 'svelte-i18n';
   import {width} from 'src/store/canvas'
   import Noti from '../Noti.svelte'
   import Nav from './Nav.svelte'
 
   $: isLocalhost = window.location.hostname === 'localhost'
+  let currentLocale = get(locale)
+  console.log(currentLocale)
+
+  const handleLocaleChange = (e) => {
+    locale.set(e.target.value)
+    currentLocale = e.target.value
+  }
 </script>
 
 <Nav />
 
 <main style={`width: ${$width}`}>
-  <h1>{title}</h1>
+  <div class="titleWrapper">
+    <h1>{title}</h1>
+    <select bind:value={currentLocale} on:change={handleLocaleChange}>
+      <option value="en">English</option>
+      <option value="ko-KR">한국어</option>
+      <option value="ja">日本語</option>
+    </select>
+  </div>
 
   <slot />
 </main>
@@ -34,7 +52,11 @@
 </footer>
 
 <style>
-  h1 {
+  .titleWrapper {
+    position: relative;
+    width: 100%;
+  }
+  .titleWrapper h1 {
     font-size: 30px;
     font-weight: 800;
     text-align: center;
@@ -43,7 +65,16 @@
     margin: 0;
     margin-bottom: 10px;
   }
-
+  .titleWrapper select {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    height: 30px;
+    border: none;
+    text-align: center;
+  }
   main,
   footer {
     display: flex;

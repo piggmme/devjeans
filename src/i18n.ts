@@ -3,11 +3,11 @@ import {addMessages, getLocaleFromNavigator, init} from 'svelte-i18n';
 
 import ko from './locales/ko/ko.json';
 import en from './locales/en/en.json';
-import jp from './locales/jp/jp.json';
+import ja from './locales/ja/ja.json';
 
-addMessages('ko', ko);
+addMessages('ko-KR', ko);
 addMessages('en', en);
-addMessages('jp', jp);
+addMessages('ja', ja);
 
 const fallbackLocale = 'ko';
 
