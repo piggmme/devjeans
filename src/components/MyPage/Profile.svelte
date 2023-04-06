@@ -1,4 +1,5 @@
 <script lang="ts">
+  import {t} from 'svelte-i18n'
   import {userInfo} from 'src/store/user'
   import Noti from '../Noti.svelte'
   import {push} from 'svelte-spa-router'
@@ -33,10 +34,10 @@
     <img src={$userInfo?.profileImage} alt={$userInfo?.email} aria-hidden="true" />
     <div class="detail">
       <span>@{$userInfo?.email.split('@')[0]}</span>
-      <button type="button" on:click={onClick}>나의 버니 만들어서 업로드하기</button>
+      <button type="button" on:click={onClick}>{$t('myPage.create')}</button>
     </div>
   </div>
-  <Noti text="버니는 최대 6개까지 업로드 가능합니다." />
+  <Noti text={$t('myPage.max')} />
 </div>
 
 <style>

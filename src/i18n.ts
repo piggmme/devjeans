@@ -1,5 +1,5 @@
 // src/i18n.js
-import {addMessages, getLocaleFromNavigator, init, register} from 'svelte-i18n';
+import {addMessages, getLocaleFromNavigator, init} from 'svelte-i18n';
 
 import ko from './locales/ko/ko.json';
 import en from './locales/en/en.json';
@@ -13,6 +13,5 @@ const fallbackLocale = 'ko';
 
 init({
     fallbackLocale,
-    initialLocale: 'en'
-    // initialLocale: getLocaleFromNavigator() || fallbackLocale,
+    initialLocale: getLocaleFromNavigator() || fallbackLocale,
 });

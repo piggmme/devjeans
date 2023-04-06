@@ -1,8 +1,9 @@
 <script lang="ts">
   import Login from '../Login.svelte'
   import Noti from '../Noti.svelte'
+  import {t} from "svelte-i18n";
 
-  export let title = '마이페이지를 이용하려면 로그인하세요.'
+  export let title = $t('myPage.requireLogin')
 </script>
 
 <div class="container">
@@ -10,7 +11,7 @@
     <h2>{title}</h2>
     <Login />
   </div>
-  <Noti style="margin: 30px 0;" icon="❤️" text="로그인 후 나만의 버니를 올려 자랑해 보세요!" />
+  <Noti style="margin: 30px 0;" icon="❤️" text={$t('myPage.footer')} />
 </div>
 
 <style>

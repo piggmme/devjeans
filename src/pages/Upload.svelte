@@ -1,4 +1,5 @@
 <script lang="ts">
+  import {t} from 'svelte-i18n'
   import {onMount} from 'svelte'
   import {logEvent} from 'firebase/analytics'
   import {analytics} from 'src/api/firebase/firebase'
@@ -21,7 +22,7 @@
 
   $: if (!$resultBunny?.origin) {
     replace('/')
-    toast.push('완성한 버니가 없습니다!', {
+    toast.push($t('uploadTap.empty'), {
       theme: {
         '--toastBackground': '#ff595eaa',
       },
@@ -32,7 +33,7 @@
     isUploading = true
 
     if (!title) {
-      toast.push('제목을 입력해 주세요.', {
+      toast.push($t('uploadTap.requireTitle'), {
         theme: {
           '--toastBackground': '#ff595eaa',
         },
@@ -66,7 +67,7 @@
     try {
       const result = await uploadPhoto(formData)
       if (result.photoId) {
-        toast.push('업로드 되었어요!', {
+        toast.push($t('uploadTap.uploaded'), {
           theme: {
             '--toastBackground': '#8ac926aa',
           },
@@ -75,13 +76,13 @@
       }
     } catch (e) {
       if (e.response.data.message === '사진을 7개이상 추가할 수 없습니다.')
-        toast.push('버니는 6개까지만 업로드 가능합니다.', {
+        toast.push($t('uploadTap.max'), {
           theme: {
             '--toastBackground': '#ff595eaa',
           },
         })
       else
-        toast.push('문제가 발생했습니다.\n 잠시 후에 다시 시도해 주세요.', {
+        toast.push($t('uploadTap.error'), {
           theme: {
             '--toastBackground': '#ff595eaa',
           },
@@ -92,29 +93,29 @@
   }
 </script>
 
-<Layout title="나의 버니를 자랑해 보세요!">
+<Layout title={$t('uploadTap.title')}>
   <div class="container">
     {#if $resultBunny?.origin}
-      <span class="detail">{'짜잔~ 완성된 버니예요! (｡･ω･｡)ﾉ♡'}</span>
+      <span class="detail">{$t('uploadTap.title') + ' (｡･ω･｡)ﾉ♡'}</span>
     {:else}
-      <span class="detail">버니를 업로드해 주세요!</span>
+      <span class="detail">{$t('uploadTap.upload')}</span>
     {/if}
     <img class={$resultBunny?.origin ? '' : 'default'} src={$resultBunny?.origin || defaultBunny} alt="데브진스" />
     <div class="toolbar">
       <Noti
         style="background-color: #fffcec;"
         icon="⚠️"
-        text="타인에게 불쾌감을 주거나 뉴진스의 이미지를 훼손할 수 있는 사진은 경고 없이 삭제 처리 및 법적 책임을 지게될 수 있으며, 본 사이트에서 생성한 모든 결과물의 상업적 사용을 엄격히 금지합니다."
+        text={$t('uploadTap.warn')}
       />
-      <Noti icon="❤️" text="멋진 제목을 입력하고 나의 버니를 자랑해 보세요." />
+      <Noti icon="❤️" text={$t('uploadTap.addTitle')} />
       <div class="input-wrapper">
-        <input placeholder="나의 귀여운 버니 🐰" class="title" type="text" bind:value={title} />
+        <input placeholder={$t('uploadTap.placeholder') + "🐰"} class="title" type="text" bind:value={title} />
 
         <button disabled={isUploading} class="save" class:isUploading on:click={handleUpload}>
           {#if isUploading}
             <ScaleOut size="35" color="#1982c4" unit="px" duration="1s" />
           {:else}
-            <span>업로드</span>
+            <span>{$t('uploadTap.submit')}</span>
           {/if}
         </button>
       </div>
