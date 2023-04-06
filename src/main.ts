@@ -1,4 +1,5 @@
 import './app.css'
+import './i18n'
 import App from './App.svelte'
 import './api/firebase/firebase'
 import axios from 'axios'

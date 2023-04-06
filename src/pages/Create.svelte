@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { t } from 'svelte-i18n'
   import devJeans from 'src/assets/dev-jeans.png'
   import {fabric} from 'fabric'
   import {onDestroy, onMount} from 'svelte'
@@ -136,11 +137,12 @@
       if (!hasObj && $hasCostume[costume].isHas) addCostume(costume as CostumeKeys)
     }
   }
+  console.log()
 </script>
 
 <Costume />
 
-<Layout title="~개발진스 짤 만들어 쓰기~">
+<Layout title={$t('main.title')}>
   <div class:isDisableCanvas>
     <canvas id="canvas" width="2400" height="2400" style="border:1px solid #ccc" />
   </div>
