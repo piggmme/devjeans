@@ -1,4 +1,5 @@
 <script>
+  import {t} from 'svelte-i18n'
   import {activeTabValue} from 'src/store/tab'
 
   export let items = []

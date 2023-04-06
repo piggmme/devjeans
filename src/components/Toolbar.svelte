@@ -1,5 +1,5 @@
 <script>
-  import { t } from 'svelte-i18n'
+  import {t} from 'svelte-i18n'
   import {TabValue} from 'src/const/tab'
   import BackgroundTap from './Tabs/BackgroundTap.svelte'
   import Photo from './Tabs/Photo.svelte'
@@ -15,6 +15,10 @@
     {label: $t('toolbar.drawing'), value: TabValue.Drawing, component: DrawingTap},
     {label: $t('toolbar.save'), value: TabValue.Save, component: SaveTap},
   ]
+  $: items = items.map((item) => {
+    item.label = $t(`toolbar.${item.value}`)
+    return item
+  })
 </script>
 
 <div class="container">
