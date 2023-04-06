@@ -1,4 +1,5 @@
 <script lang="ts">
+  import {t} from 'svelte-i18n'
   import {register} from 'swiper/element/bundle'
   import BestItem from './BestItem.svelte'
   import {getPhotos} from 'src/api/service/photo'
@@ -22,8 +23,8 @@
     rewind: true,
     autoPlay: true,
     a11y: {
-      prevSlideMessage: '이전 버니 보기',
-      nextSlideMessage: '다음 버니 보기',
+      prevSlideMessage: $t('bestBunny.prevBunny'),
+      nextSlideMessage: $t('bestBunny.nextBunny'),
     },
     autoplay: {
       delay: 1000,
@@ -36,8 +37,8 @@
 
 <div class="container">
   <div class="header">
-    <h2>가장 인기가 많은 버니들이에요!</h2>
-    <a class="link" href="/bunny-list/ranked" use:link>보러 가기</a>
+    <h2>{$t('bestBunny.title')}</h2>
+    <a class="link" href="/bunny-list/ranked" use:link>{$t('bestBunny.route')}</a>
   </div>
 
   <swiper-container class="mySwiper" {...swiperConfig} pagination-dynamic-bullets={true}>

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import {t} from 'svelte-i18n'
   import Layout from 'src/components/Layout/Layout.svelte'
   import likeDefault from 'src/assets/icons/like_default.svg'
   import likeFilled from 'src/assets/icons/like_filled.svg'
@@ -43,7 +44,7 @@
   // TODO. 삭제 되었습니다 토스트 띄우기
   const deleteMutation = createMutation(() => deletePhoto({id: $photoQuery?.data?.photoId}), {
     onSuccess: () => {
-      toast.push('버니가 삭제되었습니다.')
+      toast.push($t('common.deleteBunny'))
       deleteLoading = false
       client.invalidateQueries(['bunny-list', 'ranked'])
       client.invalidateQueries(['bunny-list', 'latest'])
@@ -59,7 +60,7 @@
 
   const handleToggleLikePhoto = async () => {
     if (!$userInfo) {
-      toast.push('로그인이 필요한 서비스입니다.', {
+      toast.push($t('common.requireLogin'), {
         theme: {
           '--toastBackground': '#ff595eaa',
         },
@@ -82,10 +83,10 @@
   }
 </script>
 
-<Layout title="사진 보기">
+<Layout title={$t('detail.title')}>
   <div class="container">
     <div class="titleArea">
-      <h2 class="title">{$photoQuery?.data?.photoTitle || '나만의 버니'}</h2>
+      <h2 class="title">{$photoQuery?.data?.photoTitle || $t('detail.placeholder')}</h2>
       <p class="creator">{creator ? `@${creator}` : ''}</p>
 
       {#if isAuthor}
@@ -93,7 +94,7 @@
           {#if deleteLoading}
             <ScaleOut size="35" color="#ff595e" unit="px" duration="1s" />
           {:else}
-            삭제
+            {$t('detail.delete')}
           {/if}
         </button>
       {/if}

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import {t} from 'svelte-i18n'
   import Layout from 'src/components/Layout/Layout.svelte'
   import Gallery from 'src/components/Photo/Gallery.svelte'
   import Noti from 'src/components/Noti.svelte'
@@ -10,8 +11,8 @@
   import {onMount} from 'svelte'
   import {SyncLoader} from 'svelte-loading-spinners'
 
-  let title = '새로운 버니들!'
-  let detail = '최근에 올라온 버니들을 확인해 보세요!'
+  let title = $t('newBunny.title')
+  let detail = $t('newBunny.subTitle')
   let icon = '💘'
   let photos: PhotoRes[] = []
   let infiniteRef: HTMLDivElement

@@ -1,5 +1,6 @@
 <script lang="ts">
   import {logEvent} from 'firebase/analytics'
+  import {t} from 'svelte-i18n'
   import {analytics} from 'src/api/firebase/firebase'
   import {onDestroy, onMount} from 'svelte'
   import {canvas} from 'src/store/canvas'
@@ -31,9 +32,9 @@
 
 <div class="container">
   <div class="header">
-    <h2>그림을 그려 보세요!</h2>
-    <span>펜 색상을 선택해서 그려 보세요.</span>
-    <span>지우고 싶은 것을 선택 후 지우개를 클릭하면 지워집니다.</span>
+    <h2>{$t('drawingTap.title')}</h2>
+    <span>{$t('drawingTap.description1')}</span>
+    <span>{$t('drawingTap.description2')}</span>
   </div>
 
   <div class="sub-container">

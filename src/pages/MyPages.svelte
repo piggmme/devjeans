@@ -1,4 +1,5 @@
 <script lang="ts">
+  import {t} from 'svelte-i18n'
   import {createQuery} from '@tanstack/svelte-query'
   import defaultBunny from 'src/assets/default-bunny.png'
   import Layout from 'src/components/Layout/Layout.svelte'
@@ -16,21 +17,21 @@
   })
 </script>
 
-<Layout title="나의 버니들!">
+<Layout title={$t('myPage.title')}>
   {#if !!$userInfo}
     <Profile />
 
     <div class="bunny-list">
       {#if !$query?.data?.length}
         <div class="no-bunny">
-          <h2>나의 버니가 없어요!</h2>
-          <span>나만의 버니를 업로드해 보세요.</span>
+          <h2>{$t('myPage.empty')}</h2>
+          <span>{$t('myPage.upload')}</span>
           <img src={defaultBunny} alt="버니" class="no-bunny-img" />
         </div>
       {:else}
         <div class="gallery">
           <Gallery photos={$query?.data} />
-          <button type="button" on:click={logout} class="logout">로그아웃</button>
+          <button type="button" on:click={logout} class="logout">{$t('myPage.logout')}</button>
         </div>
       {/if}
     </div>
