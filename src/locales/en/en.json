@@ -91,6 +91,10 @@
     "delete": "Delete",
     "placeholder": "My own Bunny"
   },
+  "newBunny": {
+    "title": "New Bunny!",
+    "subTitle": "Check out the latest bunny!"
+  },
   "date": {
     "ago": "just a moment ago",
     "minute": "minutes ago",

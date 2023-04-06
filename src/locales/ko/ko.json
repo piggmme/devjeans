@@ -90,6 +90,10 @@
     "delete": "삭제",
     "placeholder": "나만의 버니"
   },
+  "newBunny": {
+    "title": "새로운 버니들!",
+    "subTitle": "최근에 올라온 버니들을 확인해 보세요!"
+  },
   "date": {
     "ago": "방금 전",
     "minute": "분 전",

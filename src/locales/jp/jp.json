@@ -90,6 +90,10 @@
     "delete": "削除",
     "placeholder": "私だけのウサギ"
   },
+  "newBunny": {
+    "title": "新しいウサギたち！",
+    "subTitle": "最近アップされたウサギたちを確認してみてください！"
+  },
   "date": {
     "ago": "先程",
     "minute": "分前",
