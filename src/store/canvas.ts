@@ -330,8 +330,8 @@ export const addCostume = (costume: CostumeKeys) => {
     return
   }
 
-  const svg = document.getElementById(costume)
-  const svgString = new XMLSerializer().serializeToString(svg)
+  const svg = document.getElementById(costume).outerHTML
+  const encodedSVG = btoa(unescape(encodeURIComponent(svg)))
 
   // 색상값을 바꾸는 경우를 위해 추가함
   $canvas.getObjects().forEach((obj) => {
@@ -346,7 +346,7 @@ export const addCostume = (costume: CostumeKeys) => {
   lineImg.src = costumeInfo[costume].src
 
   const colorableImg = new Image()
-  colorableImg.src = 'data:image/svg+xml;utf8,' + encodeURIComponent(svgString)
+  colorableImg.src = 'data:image/svg+xml;base64,' + encodedSVG
 
   lineImg.onload = () => {
     uploadColorableCostume(costume, lineImg, colorableImg)
