@@ -1,5 +1,46 @@
 {
   "main": {
     "title": "~개발진스 짤 만들어 쓰기~"
+  },
+  "toolbar": {
+    "decorate": "꾸미기",
+    "background": "배경",
+    "photo": "사진",
+    "drawing": "드로잉",
+    "save": "저장"
+  },
+  "decorateTap": {
+    "title": "아이템을 추가해 꾸며 주세요!",
+    "reset": "초기화하기",
+    "remove": "제거",
+    "add": "추가",
+    "fillSelect": "색상 선택하기",
+    "bodySelect": "몸통 선택하기",
+    "bandSelect": "밴드 선택하기",
+    "armSelect": "팔 선택하기",
+    "empty": "없어요!",
+    "basic": "기본",
+    "item": "아이템",
+    "glasses": "안경",
+    "bangs": "앞머리",
+    "laptop": "노트북",
+    "coffee": "커피",
+    "goggles": "고글",
+    "headphones": "헤드폰",
+    "hairband": "농구 머리띠",
+    "basketballVest": "농구 조끼",
+    "basketball": "농구공",
+    "airpod": "에어팟",
+    "ballCap": "야구모자",
+    "darkCircle": "다크써클",
+    "safetyHelmet": "안전모",
+    "toast": "토스트",
+    "appleWatch": "애플워치",
+    "cookie": "쿠키",
+    "tShirt": "반팔",
+    "pants": "바지",
+    "jacketClose": "야구잠바 1",
+    "jacketOpen": "야구잠바 2",
+    "shoes": "신발"
   }
 }

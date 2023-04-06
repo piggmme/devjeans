@@ -1,5 +1,47 @@
 {
   "main": {
     "title": "Make your own bunny meme"
+  },
+  "toolbar": {
+    "decorate": "Decorate",
+    "background": "Background",
+    "photo": "Photo",
+    "drawing": "Drawing",
+    "save": "Save"
+  },
+  "decorateTap": {
+    "title": "Add more items to decorate!",
+    "reset": "Reset",
+    "remove": "Remove",
+    "add": "Add",
+    "fillSelect": "Select Color",
+    "bodySelect": "Select Body",
+    "bandSelect": "Select Band",
+    "armSelect": "Select Arm",
+    "select": "Select",
+    "empty": "No items yet",
+    "basic": "Basic",
+    "item": "Item",
+    "glasses": "Glasses",
+    "bangs": "Bangs",
+    "laptop": "Laptop",
+    "coffee": "Coffee",
+    "goggles": "Goggles",
+    "headphones": "Headphones",
+    "hairband": "Hairband",
+    "basketballVest": "Basketball Vest",
+    "basketball": "Basketball",
+    "airpod": "Airpod",
+    "ballCap": "Ball Cap",
+    "darkCircle": "Dark Circle",
+    "safetyHelmet": "Safety Helmet",
+    "toast": "Toast",
+    "appleWatch": "Apple Watch",
+    "cookie": "Cookie",
+    "tShirt": "T-Shirt",
+    "pants": "Pants",
+    "jacketClose": "Baseball Jacket 1",
+    "jacketOpen": "Baseball Jacket 2",
+    "shoes": "Shoes"
   }
 }

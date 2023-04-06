@@ -1,5 +1,46 @@
 {
   "main": {
     "title": "自分だけのバニーミームを作りなさい"
+  },
+  "toolbar": {
+    "decorate": "飾り付け",
+    "background": "背景",
+    "photo": "写真",
+    "drawing": "描き下ろし",
+    "save": "貯蔵"
+  },
+  "decorateTap": {
+    "title": "アイテムを追加して飾ってください！",
+    "reset": "リセット",
+    "remove": "除去",
+    "add": "追加",
+    "fillSelect": "カラー選択",
+    "bodySelect": "本体選択",
+    "bandSelect": "バンド選択",
+    "armSelect": "腕の選択",
+    "empty": "アイテムがありません",
+    "basic": "基本",
+    "item": "アイテム",
+    "glasses": "メガネ",
+    "bangs": "前頭部.",
+    "laptop": "ノートパソコン",
+    "coffee": "コーヒー",
+    "goggles": "ゴーグル",
+    "headphones": "ヘッドフォーン",
+    "hairband": "鉢巻き",
+    "basketballVest": "ベスト",
+    "basketball": "バスケットボール",
+    "airpod": "エアーポッズ",
+    "ballCap": "キャップ",
+    "darkCircle": "目の下の黒ずみ",
+    "safetyHelmet": "安全帽",
+    "toast": "トースト",
+    "appleWatch": "アップルウォッチ",
+    "cookie": "クッキー",
+    "tShirt": "半袖",
+    "pants": "ズボン",
+    "jacketClose": "野球ジャンパー 1",
+    "jacketOpen": "野球ジャンパー 2",
+    "shoes": "靴"
   }
 }
