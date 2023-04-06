@@ -63,5 +63,13 @@
     "title": "Draw a picture!",
     "description1": "Choose a color and draw it.",
     "description2": "Select what you want to erase and click the eraser to erase it."
+  },
+  "saveTap": {
+    "title": "Do you like the final result?",
+    "uploadAction": "I want to upload it and brag about it.",
+    "saveAction": "I want to save it as a file image.",
+    "modalTitle": "It's a complete image.",
+    "modalSave": "Save",
+    "modalAlert": "This service requires a login."
   }
 }

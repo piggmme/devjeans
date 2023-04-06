@@ -62,5 +62,13 @@
     "title": "絵を描け！",
     "description1": "色を選んで描いてください",
     "description2": "消去するものを選択し、消しゴムをクリックして消去します"
+  },
+  "saveTap": {
+    "title": "最終結果は気に入りましたか？",
+    "uploadAction": "アップして自慢したいです",
+    "saveAction": "ファイル画像として保存したいです",
+    "modalTitle": "完全なイメージです",
+    "modalSave": "貯蔵",
+    "modalAlert": "このサービスにはログインが必要です"
   }
 }
