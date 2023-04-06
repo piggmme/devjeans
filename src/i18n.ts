@@ -13,5 +13,5 @@ const fallbackLocale = 'ko';
 
 init({
     fallbackLocale,
-    initialLocale: getLocaleFromNavigator() || fallbackLocale,
+    initialLocale: localStorage.getItem('devJeansLocale') || getLocaleFromNavigator() || fallbackLocale,
 });
