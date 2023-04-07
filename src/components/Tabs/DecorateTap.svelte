@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { t } from 'svelte-i18n'
   import {logEvent} from 'firebase/analytics'
   import {analytics} from 'src/api/firebase/firebase'
   import {
@@ -14,7 +15,7 @@
   import {costumeColorable, CostumeTitle, setCostumeColorable, type CostumeColorableKey} from 'src/store/costume'
   import ColorPicker from 'svelte-awesome-color-picker'
 
-  let activeCategory: CategoryKey = '기본'
+  let activeCategory: CategoryKey = 'basic'
   let activeCostume: CostumeKeys = 'shirts'
 
   const clickCostume = (costume: string) => {
@@ -32,7 +33,7 @@
 </script>
 
 <div class="container">
-  <h2>아이템을 추가해 꾸며 주세요!</h2>
+  <h2>{$t('decorateTap.title')}</h2>
 
   <div class="contents">
     <ul class="categories">
@@ -42,37 +43,37 @@
           class:active={activeCategory === category}
           on:click={() => (activeCategory = category)}
         >
-          {category}
+          {$t('decorateTap.' + category)}
         </button>
       {/each}
     </ul>
 
-    {#if activeCategory !== '기본'}
+    {#if activeCategory !== 'basic'}
       <ul class="toolbar">
         <li>
-          <button class="item reset" on:click={reset}>초기화하기</button>
+          <button class="item reset" on:click={reset}>{$t('decorateTap.reset')}</button>
         </li>
         {#each categoryCostume[activeCategory] as costume}
           <li>
             <button class="item {$hasCostume[costume].isHas ? 'activeHas' : ''}" on:click={toggleActive(costume)}
-              >{costumeInfo[costume].title}</button
+              >{$t('decorateTap.' + costumeInfo[costume].title)}</button
             >
           </li>
         {/each}
       </ul>
     {/if}
 
-    {#if activeCategory === '기본'}
+    {#if activeCategory === 'basic'}
       <div class="custom">
         <ul class="toolbar">
           <li>
-            <button class="custom-item item reset" on:click={reset}>초기화하기</button>
+            <button class="custom-item item reset" on:click={reset}>{$t('decorateTap.reset')}</button>
           </li>
           {#each categoryCostume[activeCategory] as costume}
             <li>
               <button
                 class="custom-item item {costume === activeCostume ? 'activeCostume' : ''}"
-                on:click={() => clickCostume(costume)}>{costumeInfo[costume].title}</button
+                on:click={() => clickCostume(costume)}>{$t('decorateTap.' + costumeInfo[costume].title)}</button
               >
             </li>
           {/each}
@@ -80,13 +81,13 @@
 
         <ul class="toolbar colorbar">
           {#if !activeCostume}
-            없어요!
+            {$t('decorateTap.empty')}
           {:else}
             <li>
               <button
                 class="item {$hasCostume[activeCostume].isHas ? 'activeHas' : ''}"
                 on:click={toggleActive(activeCostume)}
-                >{costumeInfo[activeCostume].title} {$hasCostume[activeCostume].isHas ? '제거' : '추가'}</button
+                >{$t('decorateTap.' + costumeInfo[activeCostume].title)} {$hasCostume[activeCostume].isHas ? $t('decorateTap.remove') : $t('decorateTap.add')}</button
               >
             </li>
             {#each Object.entries($costumeColorable?.[activeCostume]) as costume}
@@ -102,7 +103,7 @@
                       })
                     }}
                     isA11yClosable={false}
-                    label={CostumeTitle[costume[0]] + ' 선택하기'}
+                    label={$t('decorateTap.' + costume[0] + 'Select')}
                   />
                 </div>
               </li>

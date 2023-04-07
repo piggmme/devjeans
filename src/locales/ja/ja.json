@@ -1,0 +1,137 @@
+{
+  "main": {
+    "title": "私だけのウサギ作り"
+  },
+  "common": {
+    "requireLogin": "このサービスにはログインが必要です",
+    "requireLogin2": "私のウサギを自慢するためにログインしてください",
+    "deleteBunny": "ウサギが削除されました。"
+  },
+  "toolbar": {
+    "decorate": "飾り付け",
+    "background": "背景",
+    "photo": "写真",
+    "drawing": "描き下ろし",
+    "save": "貯蔵"
+  },
+  "decorateTap": {
+    "title": "アイテムを追加して飾ってください！",
+    "reset": "リセット",
+    "remove": "除去",
+    "add": "追加",
+    "fillSelect": "カラー選択",
+    "bodySelect": "本体選択",
+    "bandSelect": "バンド選択",
+    "armSelect": "腕の選択",
+    "empty": "アイテムがありません",
+    "basic": "基本",
+    "item": "アイテム",
+    "glasses": "メガネ",
+    "bangs": "前頭部.",
+    "laptop": "ノートパソコン",
+    "coffee": "コーヒー",
+    "goggles": "ゴーグル",
+    "headphones": "ヘッドフォーン",
+    "hairband": "鉢巻き",
+    "basketballVest": "ベスト",
+    "basketball": "バスケットボール",
+    "airpod": "エアーポッズ",
+    "ballCap": "キャップ",
+    "darkCircle": "目の下の黒ずみ",
+    "safetyHelmet": "安全帽",
+    "toast": "トースト",
+    "appleWatch": "アップルウォッチ",
+    "cookie": "クッキー",
+    "tShirt": "半袖",
+    "pants": "ズボン",
+    "jacketClose": "野球ジャンパー 1",
+    "jacketOpen": "野球ジャンパー 2",
+    "shoes": "靴",
+    "head": "頭部",
+    "face": "顔",
+    "mouth": "口",
+    "hands": "手",
+    "body": "ボディ",
+    "baseballGlove": "野球グローブ",
+    "boxingGloves": "ボクシンググローブ",
+    "boxingHeadgear": "ボクシングヘッドギア",
+    "sunglasses": "サングラス"
+  },
+  "backgroundTap": {
+    "title": "背景を作ってみてください！",
+    "select": "選択",
+    "image": "画像",
+    "remove": "除去",
+    "backgroundColor": "背景色",
+    "backgroundImage": "背景画像"
+  },
+  "photoTap": {
+    "title": "写真を追加！",
+    "description1": "写真を移動してサイズを変更します",
+    "description2": "削除する写真を選択し、 [削除] ボタンをクリックします",
+    "add": "追加",
+    "remove": "除去"
+  },
+  "drawingTap": {
+    "title": "絵を描け！",
+    "description1": "色を選んで描いてください",
+    "description2": "消去するものを選択し、消しゴムをクリックして消去します"
+  },
+  "saveTap": {
+    "title": "最終結果は気に入りましたか？",
+    "uploadAction": "アップして自慢したいです",
+    "saveAction": "ファイル画像として保存したいです",
+    "modalTitle": "完全なイメージです",
+    "modalSave": "貯蔵",
+    "modalAlert": "このサービスにはログインが必要です"
+  },
+  "uploadTap": {
+    "empty": "完成したウサギがいません！",
+    "requireTitle": "タイトルを入力してください",
+    "uploaded": "アップロードされました！",
+    "max": "ウサギは6個までアップロードできます",
+    "error": "問題が発生しました\n しばらくしてからもう一度お試しください",
+    "title": "私のウサギを自慢してみてください！",
+    "upload": "ウサギをアップロードしてください！",
+    "warn": "他人に不快感を与えたり、NewJeansのイメージを傷つける可能性のある写真は、警告なしに削除処理および法的責任を負うことがあり、本サイトで生成されたすべての結果物の商業的使用を厳しく禁止します",
+    "addTitle": "素敵なタイトルを入力して、私のウサギを自慢してみてください",
+    "placeholder": "私の可愛いウサギ",
+    "submit": "アップロード"
+  },
+  "bestBunny": {
+    "title": "一番人気のあるウサギたちです！",
+    "route": "ページ移動",
+    "prevBunny": "以前のウサギ",
+    "nextBunny": "次のウサギ"
+  },
+  "rank": {
+    "title": "最高のウサギたち！",
+    "subTitle": "いいねをたくさんもらったウサギたちを確認してみてください！"
+  },
+  "detail": {
+    "title": "写真を見る",
+    "delete": "削除",
+    "placeholder": "私だけのウサギ"
+  },
+  "newBunny": {
+    "title": "新しいウサギたち！",
+    "subTitle": "最近アップされたウサギたちを確認してみてください！"
+  },
+  "myPage": {
+    "login": "ログイン",
+    "title": "僕のウサギたち！",
+    "empty": "私のウサギがいません！",
+    "upload": "私だけのウサギをアップロードしてみてください",
+    "logout": "ログアウト",
+    "requireLogin": "マイページを利用するにはログインしてください",
+    "create": "私のウサギを作ってアップロードする",
+    "max": "ウサギは最大6個までアップロードできます",
+    "footer": "ログインして、自慢するために自分のバニーを投稿してください！"
+  },
+  "date": {
+    "ago": "先程",
+    "minute": "分前",
+    "hour": "時間前",
+    "day": "日前"
+  }
+}

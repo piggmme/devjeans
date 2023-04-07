@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {fabric} from 'fabric'
+  import {t} from 'svelte-i18n'
   import {canvas} from 'src/store/canvas'
   import Modal from '../Modal/Modal.svelte'
   import {onMount} from 'svelte'
@@ -40,7 +40,7 @@
 
   const handleUpload = () => {
     if (!$userInfo) {
-      toast.push('로그인이 필요한 서비스입니다.', {
+      toast.push($t('saveTap.modalAlert'), {
         theme: {
           '--toastBackground': '#ff595eaa',
         },
@@ -65,15 +65,15 @@
 </script>
 
 <Modal bind:showModal>
-  <h2 slot="header">짜잔~ 완성된 이미지예요.</h2>
+  <h2 slot="header">{$t('saveTap.modalTitle')}</h2>
   <img src={resultImage} alt="데브진스" />
-  <button class="save" on:click={saveImage}>저장하기</button>
+  <button class="save" on:click={saveImage}>{$t('saveTap.modalSave')}</button>
 </Modal>
 
 <div class="container">
-  <h2>최종 결과물이 맘에 드시나요?</h2>
-  <button class="upload" on:click={handleUpload}>업로드해서 자랑할래요</button>
-  <button on:click={handleSaveImage}>파일 이미지로 저장할래요</button>
+  <h2>{$t('saveTap.title')}</h2>
+  <button class="upload" on:click={handleUpload}>{$t('saveTap.uploadAction')}</button>
+  <button on:click={handleSaveImage}>{$t('saveTap.saveAction')}</button>
 </div>
 
 <style>

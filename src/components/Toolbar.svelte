@@ -1,4 +1,5 @@
 <script>
+  import {t} from 'svelte-i18n'
   import {TabValue} from 'src/const/tab'
   import BackgroundTap from './Tabs/BackgroundTap.svelte'
   import Photo from './Tabs/Photo.svelte'
@@ -8,12 +9,16 @@
   import DrawingTap from './Tabs/DrawingTap.svelte'
 
   let items = [
-    {label: '꾸미기', value: TabValue.Decorate, component: Decorate},
-    {label: '배경', value: TabValue.Background, component: BackgroundTap},
-    {label: '사진', value: TabValue.Photo, component: Photo},
-    {label: '드로잉', value: TabValue.Drawing, component: DrawingTap},
-    {label: '저장', value: TabValue.Save, component: SaveTap},
+    {label: $t('toolbar.decorate'), value: TabValue.Decorate, component: Decorate},
+    {label: $t('toolbar.background'), value: TabValue.Background, component: BackgroundTap},
+    {label: $t('toolbar.photo'), value: TabValue.Photo, component: Photo},
+    {label: $t('toolbar.drawing'), value: TabValue.Drawing, component: DrawingTap},
+    {label: $t('toolbar.save'), value: TabValue.Save, component: SaveTap},
   ]
+  $: items = items.map((item) => {
+    item.label = $t(`toolbar.${item.value}`)
+    return item
+  })
 </script>
 
 <div class="container">

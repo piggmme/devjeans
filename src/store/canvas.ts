@@ -65,17 +65,17 @@ export type ColorableInfoType = {
   zIndex?: number
 }
 
-export const categories = ['기본', '머리', '얼굴', '입', '손', '기타']
+export const categories = ['basic', 'head', 'face', 'mouth', 'hands', 'body']
 
 export type CategoryKey = keyof typeof categoryCostume
 
 export const categoryCostume = {
-  기본: ['shirts', 'pants', 'jacketClose', 'jacketOpen', 'shoes'],
-  입: ['toast', 'cookie'],
-  머리: ['boxingHeadgear', 'hairband', 'hardHat', 'hair', 'headphones', 'airpot', 'ballCap'],
-  얼굴: ['sunglasses', 'glasses', 'goggles', 'darkCircles'],
-  손: ['boxingGloves', 'baseballGlove', 'laptop', 'coffee', 'basketball', 'watch'],
-  기타: ['basketballVest'],
+  basic: ['shirts', 'pants', 'jacketClose', 'jacketOpen', 'shoes'],
+  mouth: ['toast', 'cookie'],
+  head: ['boxingHeadgear', 'hairband', 'hardHat', 'hair', 'headphones', 'airpot', 'ballCap'],
+  face: ['sunglasses', 'glasses', 'goggles', 'darkCircles'],
+  hands: ['boxingGloves', 'baseballGlove', 'laptop', 'coffee', 'basketball', 'watch'],
+  body: ['basketballVest'],
 }
 
 export type CostumeInfosType = {
@@ -139,70 +139,70 @@ export const InitHasCostume = {
 export const costumeInfo: CostumeInfosType = {
   glasses: {
     type: 'item',
-    title: '안경',
+    title: 'glasses',
     src: glassesImg,
     isHas: false,
     zIndex: 1000,
   },
   hair: {
     type: 'item',
-    title: '앞머리',
+    title: 'bangs',
     src: hairImg,
     isHas: false,
     zIndex: 1000,
   },
   laptop: {
     type: 'item',
-    title: '노트북',
+    title: 'laptop',
     src: laptopImg,
     isHas: false,
     zIndex: 1000,
   },
   coffee: {
     type: 'item',
-    title: '커피',
+    title: 'coffee',
     src: coffeeImg,
     isHas: false,
     zIndex: 1000,
   },
   goggles: {
     type: 'item',
-    title: '고글',
+    title: 'goggles',
     src: gogglesImg,
     isHas: false,
     zIndex: 1000,
   },
   headphones: {
     type: 'item',
-    title: '헤드폰',
+    title: 'headphones',
     src: headphonesImg,
     isHas: false,
     zIndex: 1000,
   },
   hairband: {
     type: 'item',
-    title: '농구 머리띠',
+    title: 'hairband',
     src: hairbandImg,
     isHas: false,
     zIndex: 1000,
   },
   basketballVest: {
     type: 'item',
-    title: '농구 조끼',
+    title: 'basketballVest',
     src: basketballVestImg,
     isHas: false,
     zIndex: 100,
   },
   basketball: {
     type: 'item',
-    title: '농구 공',
+    title: 'basketball',
     src: basketballImg,
     isHas: false,
     zIndex: 1001,
   },
   airpot: {
     type: 'item',
-    title: '에어팟',
+    title: 'airpod',
     src: airpotImg,
     isHas: false,
     zIndex: 1000,
@@ -210,70 +210,70 @@ export const costumeInfo: CostumeInfosType = {
 
   ballCap: {
     type: 'item',
-    title: '볼캡',
+    title: 'ballCap',
     src: ballCapImg,
     isHas: false,
     zIndex: 1000,
   },
   darkCircles: {
     type: 'item',
-    title: '다크써클',
+    title: 'darkCircle',
     src: darkCirclesImg,
     isHas: false,
     zIndex: 100,
   },
   hardHat: {
     type: 'item',
-    title: '안전모',
+    title: 'safetyHelmet',
     src: hardHatImg,
     isHas: false,
     zIndex: 1000,
   },
   toast: {
     type: 'item',
-    title: '토스트',
+    title: 'toast',
     src: toastImg,
     isHas: false,
     zIndex: 1000,
   },
   watch: {
     type: 'item',
-    title: '애플워치',
+    title: 'appleWatch',
     src: watchImg,
     isHas: false,
     zIndex: 1000,
   },
   cookie: {
     type: 'item',
-    title: '쿠키',
+    title: 'cookie',
     src: cookieImg,
     isHas: false,
     zIndex: 1000,
   },
   boxingHeadgear: {
     type: 'item',
-    title: '복싱 헤드기어',
+    title: 'boxingHeadgear',
     src: boxingHeadgearImg,
     isHas: false,
     zIndex: 1000,
   },
   boxingGloves: {
     type: 'item',
-    title: '복싱 글러브',
+    title: 'boxingGloves',
     src: boxingGlovesImg,
     isHas: false,
     zIndex: 1000,
   },
   baseballGlove: {
     type: 'item',
-    title: '야구글러브',
+    title: 'baseballGlove',
     src: baseballGloveImg,
     isHas: false,
     zIndex: 1000,
   },
   sunglasses: {
     type: 'item',
-    title: '선글라스',
+    title: 'sunglasses',
     src: sunglassesImg,
     isHas: false,
     zIndex: 1000,
@@ -281,35 +281,35 @@ export const costumeInfo: CostumeInfosType = {
 
   shirts: {
     type: 'colorable',
-    title: '반팔',
+    title: 'tShirt',
     isHas: true,
     zIndex: 11,
     src: shirtsImg,
   },
   pants: {
     type: 'colorable',
-    title: '바지',
+    title: 'pants',
     isHas: true,
     zIndex: 10,
     src: pantsImg,
   },
   jacketClose: {
     type: 'colorable',
-    title: '야구잠바 1',
+    title: 'jacketClose',
     isHas: false,
     zIndex: 100,
     src: jacketCloseImg,
   },
   jacketOpen: {
     type: 'colorable',
-    title: '야구잠바 2',
+    title: 'jacketOpen',
     isHas: false,
     zIndex: 100,
     src: jacketOpenImg,
   },
   shoes: {
     type: 'colorable',
-    title: '신발',
+    title: 'shoes',
     isHas: true,
     zIndex: 100,
     src: shoesImg,
@@ -344,7 +344,6 @@ export const addCostume = (costume: CostumeKeys) => {
     let costumeImg = currentCostume.src
 
     fabric.Image.fromURL(costumeImg, function (img) {
-      img.scaleToWidth($width)
       img.scaleToWidth($width)
       img.selectable = false
 

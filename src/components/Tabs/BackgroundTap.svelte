@@ -1,5 +1,6 @@
 <script lang="ts">
   import {fabric} from 'fabric'
+  import { t } from 'svelte-i18n'
   import ColorPicker from 'svelte-awesome-color-picker'
   import {background, backgroundImage, canvas} from 'src/store/canvas'
   import {onMount} from 'svelte'
@@ -48,24 +49,24 @@
 </script>
 
 <div class="container">
-  <h2>배경을 꾸며 보세요!</h2>
+  <h2>{$t('backgroundTap.title')}</h2>
 
   <ul>
     <li>
-      <h3>배경 색</h3>
-      <ColorPicker bind:hex={$background} isA11yClosable={false} label="선택하기" />
+      <h3>{$t('backgroundTap.backgroundColor')}</h3>
+      <ColorPicker bind:hex={$background} isA11yClosable={false} label={$t('backgroundTap.select')} />
     </li>
 
     <li>
-      <h3>배경 이미지</h3>
+      <h3>{$t('backgroundTap.backgroundImage')}</h3>
 
       <div class="buttonWrapper">
         <button
           on:click={() => {
             inputImage.click()
-          }}>이미지</button
+          }}>{$t('backgroundTap.select')}</button
         >
-        <button on:click={removeImage}>제거</button>
+        <button on:click={removeImage}>{$t('backgroundTap.remove')}</button>
       </div>
     </li>
   </ul>
