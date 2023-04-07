@@ -20,6 +20,10 @@ import toastImg from 'src/assets/costume/toast.png'
 import watchImg from 'src/assets/costume/watch.png'
 import cookieImg from 'src/assets/costume/cookie.png'
 import hardHatImg from 'src/assets/costume/hardHat.png'
+import boxingHeadgearImg from 'src/assets/costume/boxingHeadgear.png'
+import boxingGlovesImg from 'src/assets/costume/boxingGloves.png'
+import baseballGloveImg from 'src/assets/costume/baseballGlove.png'
+import sunglassesImg from 'src/assets/costume/sunglasses.png'
 
 import jacketCloseImg from 'src/assets/costume/default/jacketClose.png'
 import jacketOpenImg from 'src/assets/costume/default/jacketOpen.png'
@@ -61,29 +65,17 @@ export type ColorableInfoType = {
   zIndex?: number
 }
 
-export const categories = ['기본', '아이템']
+export const categories = ['기본', '머리', '얼굴', '입', '손', '기타']
 
 export type CategoryKey = keyof typeof categoryCostume
 
 export const categoryCostume = {
   기본: ['shirts', 'pants', 'jacketClose', 'jacketOpen', 'shoes'],
-  아이템: [
-    'basketballVest',
-    'hairband',
-    'ballCap',
-    'hardHat',
-    'glasses',
-    'laptop',
-    'coffee',
-    'goggles',
-    'headphones',
-    'basketball',
-    'airpot',
-    'darkCircles',
-    'toast',
-    'watch',
-    'cookie',
-  ],
+  입: ['toast', 'cookie'],
+  머리: ['boxingHeadgear', 'hairband', 'hardHat', 'hair', 'headphones', 'airpot', 'ballCap'],
+  얼굴: ['sunglasses', 'glasses', 'goggles', 'darkCircles'],
+  손: ['boxingGloves', 'baseballGlove', 'laptop', 'coffee', 'basketball', 'watch'],
+  기타: ['basketballVest'],
 }
 
 export type CostumeInfosType = {
@@ -103,6 +95,10 @@ export type CostumeInfosType = {
   watch: InfoType
   cookie: InfoType
   hardHat: InfoType
+  boxingHeadgear: InfoType
+  boxingGloves: InfoType
+  baseballGlove: InfoType
+  sunglasses: InfoType
 
   shirts: ColorableInfoType
   pants: ColorableInfoType
@@ -128,6 +124,10 @@ export const InitHasCostume = {
   watch: false,
   cookie: false,
   hardHat: false,
+  boxingHeadgear: false,
+  boxingGloves: false,
+  baseballGlove: false,
+  sunglasses: false,
 
   shirts: true,
   pants: true,
@@ -247,6 +247,34 @@ export const costumeInfo: CostumeInfosType = {
     type: 'item',
     title: '쿠키',
     src: cookieImg,
+    isHas: false,
+    zIndex: 1000,
+  },
+  boxingHeadgear: {
+    type: 'item',
+    title: '복싱 헤드기어',
+    src: boxingHeadgearImg,
+    isHas: false,
+    zIndex: 1000,
+  },
+  boxingGloves: {
+    type: 'item',
+    title: '복싱 글러브',
+    src: boxingGlovesImg,
+    isHas: false,
+    zIndex: 1000,
+  },
+  baseballGlove: {
+    type: 'item',
+    title: '야구글러브',
+    src: baseballGloveImg,
+    isHas: false,
+    zIndex: 1000,
+  },
+  sunglasses: {
+    type: 'item',
+    title: '선글라스',
+    src: sunglassesImg,
     isHas: false,
     zIndex: 1000,
   },

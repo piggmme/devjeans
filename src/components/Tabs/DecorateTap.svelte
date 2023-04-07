@@ -11,7 +11,6 @@
     categoryCostume,
     type CategoryKey,
   } from 'src/store/canvas'
-  import Costume from '../Costume/Costume.svelte'
   import {costumeColorable, CostumeTitle, setCostumeColorable, type CostumeColorableKey} from 'src/store/costume'
   import ColorPicker from 'svelte-awesome-color-picker'
 
@@ -161,6 +160,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    align-content: center;
     width: 100%;
     flex-wrap: wrap;
     padding: 20px;
