@@ -55,7 +55,10 @@
     "baseballGlove": "野球グローブ",
     "boxingGloves": "ボクシンググローブ",
     "boxingHeadgear": "ボクシングヘッドギア",
-    "sunglasses": "サングラス"
+    "sunglasses": "サングラス",
+    "employeeIdCard": "社員証",
+    "hamburger": "ハンバーガー",
+    "carrot": "ニンジン"
   },
   "backgroundTap": {
     "title": "背景を作ってみてください！",
