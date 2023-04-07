@@ -191,14 +191,14 @@ export const costumeInfo: CostumeInfosType = {
     title: 'basketballVest',
     src: basketballVestImg,
     isHas: false,
-    zIndex: 10,
+    zIndex: 100,
   },
   basketball: {
     type: 'item',
     title: 'basketball',
     src: basketballImg,
     isHas: false,
-    zIndex: 1000,
+    zIndex: 1001,
   },
   airpot: {
     type: 'item',
