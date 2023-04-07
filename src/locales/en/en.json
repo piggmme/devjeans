@@ -47,7 +47,16 @@
     "pants": "Pants",
     "jacketClose": "Baseball Jacket 1",
     "jacketOpen": "Baseball Jacket 2",
-    "shoes": "Shoes"
+    "shoes": "Shoes",
+    "head": "Head",
+    "face": "Face",
+    "mouth": "Mouth",
+    "hands": "Hands",
+    "body": "Body",
+    "baseballGlove": "Baseball Glove",
+    "boxingGloves": "Boxing Gloves",
+    "boxingHeadgear": "Boxing Headgear",
+    "sunglasses": "Sunglasses"
   },
   "backgroundTap": {
     "title": "Decorate the background!",

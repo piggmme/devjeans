@@ -20,6 +20,10 @@ import toastImg from 'src/assets/costume/toast.png'
 import watchImg from 'src/assets/costume/watch.png'
 import cookieImg from 'src/assets/costume/cookie.png'
 import hardHatImg from 'src/assets/costume/hardHat.png'
+import boxingHeadgearImg from 'src/assets/costume/boxingHeadgear.png'
+import boxingGlovesImg from 'src/assets/costume/boxingGloves.png'
+import baseballGloveImg from 'src/assets/costume/baseballGlove.png'
+import sunglassesImg from 'src/assets/costume/sunglasses.png'
 
 import jacketCloseImg from 'src/assets/costume/default/jacketClose.png'
 import jacketOpenImg from 'src/assets/costume/default/jacketOpen.png'
@@ -61,29 +65,17 @@ export type ColorableInfoType = {
   zIndex?: number
 }
 
-export const categories = ['basic', 'item']
+export const categories = ['basic', 'head', 'face', 'mouth', 'hands', 'body']
 
 export type CategoryKey = keyof typeof categoryCostume
 
 export const categoryCostume = {
   basic: ['shirts', 'pants', 'jacketClose', 'jacketOpen', 'shoes'],
-  item: [
-    'basketballVest',
-    'hairband',
-    'ballCap',
-    'hardHat',
-    'glasses',
-    'laptop',
-    'coffee',
-    'goggles',
-    'headphones',
-    'basketball',
-    'airpot',
-    'darkCircles',
-    'toast',
-    'watch',
-    'cookie',
-  ],
+  mouth: ['toast', 'cookie'],
+  head: ['boxingHeadgear', 'hairband', 'hardHat', 'hair', 'headphones', 'airpot', 'ballCap'],
+  face: ['sunglasses', 'glasses', 'goggles', 'darkCircles'],
+  hands: ['boxingGloves', 'baseballGlove', 'laptop', 'coffee', 'basketball', 'watch'],
+  body: ['basketballVest'],
 }
 
 export type CostumeInfosType = {
@@ -103,6 +95,10 @@ export type CostumeInfosType = {
   watch: InfoType
   cookie: InfoType
   hardHat: InfoType
+  boxingHeadgear: InfoType
+  boxingGloves: InfoType
+  baseballGlove: InfoType
+  sunglasses: InfoType
 
   shirts: ColorableInfoType
   pants: ColorableInfoType
@@ -128,6 +124,10 @@ export const InitHasCostume = {
   watch: false,
   cookie: false,
   hardHat: false,
+  boxingHeadgear: false,
+  boxingGloves: false,
+  baseballGlove: false,
+  sunglasses: false,
 
   shirts: true,
   pants: true,
@@ -247,6 +247,34 @@ export const costumeInfo: CostumeInfosType = {
     type: 'item',
     title: 'cookie',
     src: cookieImg,
+    isHas: false,
+    zIndex: 1000,
+  },
+  boxingHeadgear: {
+    type: 'item',
+    title: 'boxingHeadgear',
+    src: boxingHeadgearImg,
+    isHas: false,
+    zIndex: 1000,
+  },
+  boxingGloves: {
+    type: 'item',
+    title: 'boxingGloves',
+    src: boxingGlovesImg,
+    isHas: false,
+    zIndex: 1000,
+  },
+  baseballGlove: {
+    type: 'item',
+    title: 'baseballGlove',
+    src: baseballGloveImg,
+    isHas: false,
+    zIndex: 1000,
+  },
+  sunglasses: {
+    type: 'item',
+    title: 'sunglasses',
+    src: sunglassesImg,
     isHas: false,
     zIndex: 1000,
   },
@@ -375,7 +403,6 @@ const uploadColorableCostume = (costume: string, lineImg: HTMLImageElement, colo
     costume,
   })
   group.scaleToWidth($canvas.width)
-  // FIXME 사파리 및 애플 모바일에서 에러 발생
   $canvas.add(group)
 
   sortByZindex()
