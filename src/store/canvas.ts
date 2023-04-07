@@ -191,14 +191,14 @@ export const costumeInfo: CostumeInfosType = {
     title: '농구 조끼',
     src: basketballVestImg,
     isHas: false,
-    zIndex: 10,
+    zIndex: 100,
   },
   basketball: {
     type: 'item',
     title: '농구 공',
     src: basketballImg,
     isHas: false,
-    zIndex: 1000,
+    zIndex: 1001,
   },
   airpot: {
     type: 'item',
