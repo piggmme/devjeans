@@ -24,6 +24,9 @@ import boxingHeadgearImg from 'src/assets/costume/boxingHeadgear.png'
 import boxingGlovesImg from 'src/assets/costume/boxingGloves.png'
 import baseballGloveImg from 'src/assets/costume/baseballGlove.png'
 import sunglassesImg from 'src/assets/costume/sunglasses.png'
+import employeeIdCardImg from 'src/assets/costume/employeeIdCard.png'
+import hamburgerImg from 'src/assets/costume/hamburger.png'
+import carrotImg from 'src/assets/costume/carrot.png'
 
 import jacketCloseImg from 'src/assets/costume/default/jacketClose.png'
 import jacketOpenImg from 'src/assets/costume/default/jacketOpen.png'
@@ -71,11 +74,11 @@ export type CategoryKey = keyof typeof categoryCostume
 
 export const categoryCostume = {
   basic: ['shirts', 'pants', 'jacketClose', 'jacketOpen', 'shoes'],
-  mouth: ['toast', 'cookie'],
+  mouth: ['carrot', 'toast', 'cookie'],
   head: ['boxingHeadgear', 'hairband', 'hardHat', 'hair', 'headphones', 'airpot', 'ballCap'],
   face: ['sunglasses', 'glasses', 'goggles', 'darkCircles'],
-  hands: ['boxingGloves', 'baseballGlove', 'laptop', 'coffee', 'basketball', 'watch'],
-  body: ['basketballVest'],
+  hands: ['hamburger', 'boxingGloves', 'baseballGlove', 'laptop', 'coffee', 'basketball', 'watch'],
+  body: ['employeeIdCard', 'basketballVest'],
 }
 
 export type CostumeInfosType = {
@@ -99,6 +102,9 @@ export type CostumeInfosType = {
   boxingGloves: InfoType
   baseballGlove: InfoType
   sunglasses: InfoType
+  employeeIdCard: InfoType
+  hamburger: InfoType
+  carrot: InfoType
 
   shirts: ColorableInfoType
   pants: ColorableInfoType
@@ -275,6 +281,27 @@ export const costumeInfo: CostumeInfosType = {
     type: 'item',
     title: 'sunglasses',
     src: sunglassesImg,
+    isHas: false,
+    zIndex: 1000,
+  },
+  employeeIdCard: {
+    type: 'item',
+    title: 'employeeIdCard',
+    src: employeeIdCardImg,
+    isHas: false,
+    zIndex: 1000,
+  },
+  hamburger: {
+    type: 'item',
+    title: 'hamburger',
+    src: hamburgerImg,
+    isHas: false,
+    zIndex: 100,
+  },
+  carrot: {
+    type: 'item',
+    title: 'carrot',
+    src: carrotImg,
     isHas: false,
     zIndex: 1000,
   },

@@ -55,7 +55,10 @@
     "baseballGlove": "야구 글러브",
     "boxingGloves": "복싱 글러브",
     "boxingHeadgear": "복싱 헤드기어",
-    "sunglasses": "썬글라스"
+    "sunglasses": "썬글라스",
+    "employeeIdCard": "사원증",
+    "hamburger": "햄버거",
+    "carrot": "당근"
   },
   "backgroundTap": {
     "title": "배경을 꾸며 보세요!",

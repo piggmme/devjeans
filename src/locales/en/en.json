@@ -56,7 +56,10 @@
     "baseballGlove": "Baseball Glove",
     "boxingGloves": "Boxing Gloves",
     "boxingHeadgear": "Boxing Headgear",
-    "sunglasses": "Sunglasses"
+    "sunglasses": "Sunglasses",
+    "employeeIdCard": "Employee ID Card",
+    "hamburger": "Hamburger",
+    "carrot": "Carrot"
   },
   "backgroundTap": {
     "title": "Decorate the background!",
