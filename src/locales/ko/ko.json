@@ -46,7 +46,16 @@
     "pants": "바지",
     "jacketClose": "야구잠바 1",
     "jacketOpen": "야구잠바 2",
-    "shoes": "신발"
+    "shoes": "신발",
+    "head": "머리",
+    "face": "얼굴",
+    "mouth": "입",
+    "hands": "손",
+    "body": "몸",
+    "baseballGlove": "야구 글러브",
+    "boxingGloves": "복싱 글러브",
+    "boxingHeadgear": "복싱 헤드기어",
+    "sunglasses": "썬글라스"
   },
   "backgroundTap": {
     "title": "배경을 꾸며 보세요!",
@@ -125,5 +134,4 @@
     "hour": "시간 전",
     "day": "일 전"
   }
-
 }
