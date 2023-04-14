@@ -23,6 +23,9 @@
     "bodySelect": "本体選択",
     "bandSelect": "バンド選択",
     "armSelect": "腕の選択",
+    "topSelect": "トップスの選択",
+    "bottomSelect": "ボトムスの選択",
+    "neckSelect": "首の選択",
     "empty": "アイテムがありません",
     "basic": "基本",
     "item": "アイテム",
@@ -58,7 +61,12 @@
     "sunglasses": "サングラス",
     "employeeIdCard": "社員証",
     "hamburger": "ハンバーガー",
-    "carrot": "ニンジン"
+    "carrot": "ニンジン",
+    "airpodMax": "エアポッドマックス",
+    "jokduri": "ジョクヅリ",
+    "femaleHanbok": "女性韓服",
+    "yShirts": "シャツ",
+    "shirtDress": "シャツワンピース"
   },
   "backgroundTap": {
     "title": "背景を作ってみてください！",
