@@ -1,9 +1,12 @@
 <script lang="ts">
+  import FemaleHanbok from './FemaleHanbok.svelte'
   import JacketClose from './JacketClose.svelte'
   import JacketOpen from './JacketOpen.svelte'
   import Pants from './Pants.svelte'
+  import ShirtDress from './ShirtDress.svelte'
   import Shirts from './Shirts.svelte'
   import Shoes from './Shoes.svelte'
+  import YShirts from './YShirts.svelte'
 </script>
 
 <div class="hidden">
@@ -12,6 +15,9 @@
   <Pants />
   <Shirts />
   <Shoes />
+  <FemaleHanbok />
+  <ShirtDress />
+  <YShirts />
 </div>
 
 <style>

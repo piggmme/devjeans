@@ -27,12 +27,17 @@ import sunglassesImg from 'src/assets/costume/sunglasses.png'
 import employeeIdCardImg from 'src/assets/costume/employeeIdCard.png'
 import hamburgerImg from 'src/assets/costume/hamburger.png'
 import carrotImg from 'src/assets/costume/carrot.png'
+import airpodMaxImg from 'src/assets/costume/airpodMax.png'
+import jokduriImg from 'src/assets/costume/jokduri.png'
 
 import jacketCloseImg from 'src/assets/costume/default/jacketClose.png'
 import jacketOpenImg from 'src/assets/costume/default/jacketOpen.png'
 import pantsImg from 'src/assets/costume/default/pants.png'
 import shirtsImg from 'src/assets/costume/default/shirts.png'
 import shoesImg from 'src/assets/costume/default/shoes.png'
+import femaleHanbokImg from 'src/assets/costume/default/femaleHanbok.png'
+import shirtDressImg from 'src/assets/costume/default/shirtDress.png'
+// import yShirtsImg from 'src/assets/costume/default/yShirts.png'
 
 export const isReadyCostume = writable({
   shirts: false,
@@ -40,6 +45,9 @@ export const isReadyCostume = writable({
   jacketClose: false,
   jacketOpen: false,
   shoes: false,
+  femaleHanbok: false,
+  shirtDress: false,
+  // yShirts: false,
 })
 
 export const background = writable(backgrounds[getRandomInt(0, backgrounds.length - 1)])
@@ -73,9 +81,9 @@ export const categories = ['basic', 'head', 'face', 'mouth', 'hands', 'body']
 export type CategoryKey = keyof typeof categoryCostume
 
 export const categoryCostume = {
-  basic: ['shirts', 'pants', 'jacketClose', 'jacketOpen', 'shoes'],
+  basic: ['femaleHanbok', 'shirtDress', 'shirts', 'pants', 'jacketClose', 'jacketOpen', 'shoes'],
   mouth: ['carrot', 'toast', 'cookie'],
-  head: ['boxingHeadgear', 'hairband', 'hardHat', 'hair', 'headphones', 'airpot', 'ballCap'],
+  head: ['airpodMax', 'jokduri', 'boxingHeadgear', 'hairband', 'hardHat', 'hair', 'headphones', 'airpot', 'ballCap'],
   face: ['sunglasses', 'glasses', 'goggles', 'darkCircles'],
   hands: ['hamburger', 'boxingGloves', 'baseballGlove', 'laptop', 'coffee', 'basketball', 'watch'],
   body: ['employeeIdCard', 'basketballVest'],
@@ -105,12 +113,17 @@ export type CostumeInfosType = {
   employeeIdCard: InfoType
   hamburger: InfoType
   carrot: InfoType
+  airpodMax: InfoType
+  jokduri: InfoType
 
   shirts: ColorableInfoType
   pants: ColorableInfoType
   jacketClose: ColorableInfoType
   jacketOpen: ColorableInfoType
   shoes: ColorableInfoType
+  femaleHanbok: ColorableInfoType
+  shirtDress: ColorableInfoType
+  // yShirts: ColorableInfoType
 }
 
 export const InitHasCostume = {
@@ -134,12 +147,20 @@ export const InitHasCostume = {
   boxingGloves: false,
   baseballGlove: false,
   sunglasses: false,
+  employeeIdCard: false,
+  hamburger: false,
+  carrot: false,
+  airpodMax: false,
+  jokduri: false,
 
   shirts: true,
   pants: true,
   jacketClose: false,
   jacketOpen: false,
   shoes: true,
+  femaleHanbok: false,
+  shirtDress: false,
+  // yShirts: false,
 }
 
 export const costumeInfo: CostumeInfosType = {
@@ -305,6 +326,20 @@ export const costumeInfo: CostumeInfosType = {
     isHas: false,
     zIndex: 1000,
   },
+  airpodMax: {
+    type: 'item',
+    title: 'airpodMax',
+    src: airpodMaxImg,
+    isHas: false,
+    zIndex: 1000,
+  },
+  jokduri: {
+    type: 'item',
+    title: 'jokduri',
+    src: jokduriImg,
+    isHas: false,
+    zIndex: 1000,
+  },
 
   shirts: {
     type: 'colorable',
@@ -340,6 +375,27 @@ export const costumeInfo: CostumeInfosType = {
     isHas: true,
     zIndex: 100,
     src: shoesImg,
+  },
+  femaleHanbok: {
+    type: 'colorable',
+    title: 'femaleHanbok',
+    isHas: false,
+    zIndex: 101,
+    src: femaleHanbokImg,
+  },
+  // yShirts: {
+  //   type: 'colorable',
+  //   title: 'yShirts',
+  //   isHas: false,
+  //   zIndex: 100,
+  //   src: yShirtsImg,
+  // },
+  shirtDress: {
+    type: 'colorable',
+    title: 'shirtDress',
+    isHas: false,
+    zIndex: 100,
+    src: shirtDressImg,
   },
 }
 
