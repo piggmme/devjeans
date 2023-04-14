@@ -30,6 +30,7 @@ import carrotImg from 'src/assets/costume/carrot.png'
 import airpodMaxImg from 'src/assets/costume/airpodMax.png'
 import jokduriImg from 'src/assets/costume/jokduri.png'
 
+
 import jacketCloseImg from 'src/assets/costume/default/jacketClose.png'
 import jacketOpenImg from 'src/assets/costume/default/jacketOpen.png'
 import pantsImg from 'src/assets/costume/default/pants.png'
