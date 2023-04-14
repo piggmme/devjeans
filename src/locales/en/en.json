@@ -23,6 +23,9 @@
     "bodySelect": "Select Body",
     "bandSelect": "Select Band",
     "armSelect": "Select Arm",
+    "topSelect": "Select Top",
+    "bottomSelect": "Select Bottom",
+    "neckSelect": "Select Neck",
     "select": "Select",
     "empty": "No items yet",
     "basic": "Basic",
@@ -59,7 +62,12 @@
     "sunglasses": "Sunglasses",
     "employeeIdCard": "Employee ID Card",
     "hamburger": "Hamburger",
-    "carrot": "Carrot"
+    "carrot": "Carrot",
+    "airpodMax": "Airpods Max",
+    "jokduri": "Jokduri",
+    "femaleHanbok": "Female Hanbok",
+    "yShirts": "Shirts",
+    "shirtDress": "Shirt Dress"
   },
   "backgroundTap": {
     "title": "Decorate the background!",
@@ -93,7 +101,7 @@
     "empty": "There is no completed Bunny!",
     "requireTitle": "Please enter a title.",
     "uploaded": "It's uploaded!",
-    "max": "You can upload up to 6 bunnies.",
+    "max": "You can upload up to 30 bunnies.",
     "error": "There was a problem.\n Please try again later.",
     "title": "Show off my bunny!",
     "upload": "Please upload Bunny!",
@@ -129,7 +137,7 @@
     "logout": "Logout",
     "requireLogin": "Sign in to use My Page.",
     "create": "Make my bunny and upload it.",
-    "max": "You can upload up to 6 bunnies.",
+    "max": "You can upload up to 30 bunnies.",
     "footer": "Log in and post your own bunny to show off!"
   },
   "date": {
