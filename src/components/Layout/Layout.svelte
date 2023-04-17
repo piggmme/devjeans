@@ -28,7 +28,7 @@
 
 <main style={`width: ${$width}`}>
   <div class="titleWrapper">
-    <h1>{title}</h1>
+    <h1>개발진스</h1>
     <select bind:value={currentLocale} on:change={handleLocaleChange}>
       <option value="en">English</option>
       <option value="ko-KR">한국어</option>

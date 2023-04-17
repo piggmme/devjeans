@@ -5,6 +5,7 @@
   import {hasCostume, type CostumeKeys, canvas} from 'src/store/canvas'
   import {setCostumeColorable, type CostumeTitleKey} from 'src/store/costume'
   import {onMount} from 'svelte'
+  import {debounce} from 'lodash'
 
   export let costume: CostumeTitleKey | string
   export let defaultColor: string
@@ -24,13 +25,13 @@
       editor: true,
       editorFormat: 'hex',
       color: defaultColor,
-      onChange: (color) => {
+      onChange: debounce((color) => {
         pickerColor.style.backgroundColor = color.rgbaString
         if (!$canvas || !$hasCostume[activeCostume].isHas) return
         setCostumeColorable(activeCostume, {
           [costume]: color.hex,
         })
-      },
+      }, 100),
     })
   }
 
