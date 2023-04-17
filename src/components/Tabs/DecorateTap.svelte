@@ -42,7 +42,7 @@
   <div class="contents">
     <ul class="categories">
       {#each categories as category}
-        <button class="category" class:active={activeCategory === category} on:click={onClick}>
+        <button class="category" class:active={activeCategory === category} on:click={() => onClick(category)}>
           {$t('decorateTap.' + category)}
         </button>
       {/each}
