@@ -143,7 +143,6 @@
       }
     })
 
-    console.log({setWidth: $width})
     $canvas.setWidth($width)
     $canvas.setHeight($width)
     $canvas.renderAll()
