@@ -7,9 +7,17 @@ jobs:
   deploy:
     runs-on: ubuntu-20.04
     steps:
-      - name: 저장소 Checkout
+      - name: Install Python
+        run: |
+          sudo apt-get update
+          sudo apt-get install python3
+          
+      - name: Set Python PATH
+        run: echo "export PATH=/usr/bin/python3:\$PATH" >> $GITHUB_ENV
+        
+      - name: Checkout code
         uses: actions/checkout@v3
-
+ 
       - name: 도커 이미지 빌드 # (2)
         run: docker build -t patnmat/devjeans-front .
 
