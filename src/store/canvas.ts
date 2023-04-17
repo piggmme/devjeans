@@ -427,7 +427,7 @@ export const addCostume = (costume: CostumeKeys) => {
     let costumeImg = currentCostume.src
 
     fabric.Image.fromURL(costumeImg, function (img) {
-      img.scaleToWidth($width)
+      img.scaleToWidth($width * $canvas.getZoom())
       img.selectable = false
 
       img.set('itemType', 'costume')
@@ -469,6 +469,8 @@ export const addCostume = (costume: CostumeKeys) => {
 
 const uploadColorableCostume = (costume: string, lineImg: HTMLImageElement, colorableImg: HTMLImageElement) => {
   const $canvas = get(canvas)
+  const $width = get(width)
+
   const isReady = get(isReadyCostume)
   if (!isReady[costume]) {
     isReadyCostume.update((prev) => ({...prev, [costume]: true}))
@@ -485,7 +487,7 @@ const uploadColorableCostume = (costume: string, lineImg: HTMLImageElement, colo
     itemType: 'costume',
     costume,
   })
-  group.scaleToWidth($canvas.width)
+  group.scaleToWidth($width * $canvas.getZoom())
   $canvas.add(group)
   $canvas.renderAll()
 
