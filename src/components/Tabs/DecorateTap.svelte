@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { t } from 'svelte-i18n'
+  import {t} from 'svelte-i18n'
   import {logEvent} from 'firebase/analytics'
   import {analytics} from 'src/api/firebase/firebase'
   import {
@@ -12,8 +12,8 @@
     categoryCostume,
     type CategoryKey,
   } from 'src/store/canvas'
-  import {costumeColorable, CostumeTitle, setCostumeColorable, type CostumeColorableKey} from 'src/store/costume'
-  import ColorPicker from 'svelte-awesome-color-picker'
+  import {costumeColorable} from 'src/store/costume'
+  import ColorPicker from './atoms/ColorPicker.svelte'
 
   let activeCategory: CategoryKey = 'basic'
   let activeCostume: CostumeKeys = 'shirts'
@@ -30,6 +30,10 @@
     logEvent(analytics, '초기화 버튼 클릭')
     resetCostume(activeCategory)
   }
+
+  const onClick = (currentCategory: string) => {
+    activeCategory = currentCategory as CategoryKey
+  }
 </script>
 
 <div class="container">
@@ -38,11 +42,7 @@
   <div class="contents">
     <ul class="categories">
       {#each categories as category}
-        <button
-          class="category"
-          class:active={activeCategory === category}
-          on:click={() => (activeCategory = category)}
-        >
+        <button class="category" class:active={activeCategory === category} on:click={onClick}>
           {$t('decorateTap.' + category)}
         </button>
       {/each}
@@ -87,25 +87,13 @@
               <button
                 class="item {$hasCostume[activeCostume].isHas ? 'activeHas' : ''}"
                 on:click={toggleActive(activeCostume)}
-                >{$t('decorateTap.' + costumeInfo[activeCostume].title)} {$hasCostume[activeCostume].isHas ? $t('decorateTap.remove') : $t('decorateTap.add')}</button
+                >{$t('decorateTap.' + costumeInfo[activeCostume].title)}
+                {$hasCostume[activeCostume].isHas ? $t('decorateTap.remove') : $t('decorateTap.add')}</button
               >
             </li>
             {#each Object.entries($costumeColorable?.[activeCostume]) as costume}
               <li>
-                <div class="picker">
-                  <ColorPicker
-                    hex={costume[1]}
-                    on:input={(e) => {
-                      if (!$hasCostume[activeCostume].isHas) return
-                      if (costume[1] === e.detail.hex) return
-                      setCostumeColorable(activeCostume, {
-                        [costume[0]]: e.detail.hex,
-                      })
-                    }}
-                    isA11yClosable={false}
-                    label={$t('decorateTap.' + costume[0] + 'Select')}
-                  />
-                </div>
+                <ColorPicker costume={costume[0]} defaultColor={costume[1]} {activeCostume} />
               </li>
             {/each}
           {/if}

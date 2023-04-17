@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { t } from 'svelte-i18n'
+  import {t} from 'svelte-i18n'
   import devJeans from 'src/assets/dev-jeans.png'
   import {fabric} from 'fabric'
   import {onDestroy, onMount} from 'svelte'
@@ -58,8 +58,8 @@
     fabric.Image.fromURL(
       devJeans,
       function (img) {
-        img.scaleToWidth($width)
-        img.scaleToWidth($width)
+        img.scaleToWidth($width * $canvas.getZoom())
+        img.scaleToWidth($width * $canvas.getZoom())
         img.selectable = false
         img.set('itemType', 'bunny')
         $canvas.add(img)
@@ -142,15 +142,19 @@
         obj.selectable = false
       }
     })
+
+    console.log({setWidth: $width * $canvas.getZoom()})
+    $canvas.setWidth($width * $canvas.getZoom())
+    $canvas.setHeight($width * $canvas.getZoom())
+    $canvas.renderAll()
   }
-  console.log()
 </script>
 
 <Costume />
 
 <Layout title={$t('main.title')}>
   <div class:isDisableCanvas>
-    <canvas id="canvas" width="2400" height="2400" style="border:1px solid #ccc" />
+    <canvas id="canvas" width="1500" height="1500" style="border:1px solid #ccc" />
   </div>
   <Toolbar />
   <Best />

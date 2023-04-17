@@ -1,8 +1,8 @@
 <script lang="ts">
-  import {locale, t} from 'svelte-i18n';
+  import {locale, t} from 'svelte-i18n'
   import {width} from 'src/store/canvas'
   import Nav from './Nav.svelte'
-  import {onMount} from "svelte";
+  import {onMount} from 'svelte'
 
   export let title = ''
 
@@ -10,7 +10,6 @@
   let currentLocale = localStorage.getItem('devJeansLocale') || 'ko-KR'
 
   onMount(() => {
-    document.title = $t('main.title')
     locale.set(currentLocale)
   })
 
@@ -18,7 +17,6 @@
     localStorage.setItem('devJeansLocale', e.target.value)
     locale.set(e.target.value)
     currentLocale = e.target.value
-    document.title = $t('main.title')
   }
 </script>
 

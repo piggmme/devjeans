@@ -11,6 +11,8 @@ export const CostumeTitle = {
   neck: '목',
 }
 
+export type CostumeTitleKey = keyof typeof CostumeTitle
+
 type CostumeColorable = {
   jacketClose: {
     body: string
