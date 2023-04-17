@@ -488,6 +488,7 @@ const uploadColorableCostume = (costume: string, lineImg: HTMLImageElement, colo
   })
   group.scaleToWidth($canvas.width)
   $canvas.add(group)
+  $canvas.renderAll()
 
   sortByZindex()
 
@@ -519,4 +520,6 @@ export const sortByZindex = () => {
 
     if (obj.itemType === 'photo') $canvas.bringToFront(obj)
   }
+
+  $canvas.renderAll()
 }
