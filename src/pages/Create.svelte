@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { t } from 'svelte-i18n'
+  import {t} from 'svelte-i18n'
   import devJeans from 'src/assets/dev-jeans.png'
   import {fabric} from 'fabric'
   import {onDestroy, onMount} from 'svelte'
@@ -142,6 +142,10 @@
         obj.selectable = false
       }
     })
+
+    $canvas.setWidth($width * $canvas.getZoom())
+    $canvas.setHeight($width * $canvas.getZoom())
+    $canvas.renderAll()
   }
   console.log()
 </script>
