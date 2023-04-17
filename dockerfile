@@ -2,7 +2,7 @@ FROM node:14-alpine as build
 
 WORKDIR /app
 
-COPY ["package.json", "package-lock.json*", "."]
+COPY ["package.json", "package-lock.json*", "./"]
 
 RUN npm install
 
