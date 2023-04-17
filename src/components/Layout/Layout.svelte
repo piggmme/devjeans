@@ -10,8 +10,6 @@
   let currentLocale = localStorage.getItem('devJeansLocale') || 'ko-KR'
 
   onMount(() => {
-    document.title = $t('main.title')
-    title = $t('main.title')
     locale.set(currentLocale)
   })
 
@@ -19,8 +17,6 @@
     localStorage.setItem('devJeansLocale', e.target.value)
     locale.set(e.target.value)
     currentLocale = e.target.value
-    document.title = $t('main.title')
-    title = $t('main.title')
   }
 </script>
 
@@ -28,7 +24,7 @@
 
 <main style={`width: ${$width}`}>
   <div class="titleWrapper">
-    <h1>개발진스</h1>
+    <h1>{title}</h1>
     <select bind:value={currentLocale} on:change={handleLocaleChange}>
       <option value="en">English</option>
       <option value="ko-KR">한국어</option>
