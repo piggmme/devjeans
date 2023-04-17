@@ -16,7 +16,7 @@ jobs:
         run: echo "export PATH=/usr/bin/python3:\$PATH" >> $GITHUB_ENV
         
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
  
       - name: 도커 이미지 빌드 # (2)
         run: docker build -t patnmat/devjeans-front .
