@@ -18,7 +18,6 @@
   const initColorPicker = () => {
     if (!pickerColor) return
     pickerColor.style.backgroundColor = defaultColor
-    console.log({costume, defaultColor})
     picker = new Picker({
       parent: pickerButton,
       popup: 'bottom',

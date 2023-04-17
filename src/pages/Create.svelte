@@ -44,8 +44,8 @@
     $canvas = new fabric.Canvas('canvas')
     $width = getWidth()
 
-    $canvas.setWidth($width * $canvas.getZoom())
-    $canvas.setHeight($width * $canvas.getZoom())
+    $canvas.setWidth($width)
+    $canvas.setHeight($width)
 
     $resultBunny = null
 
@@ -58,8 +58,8 @@
     fabric.Image.fromURL(
       devJeans,
       function (img) {
-        img.scaleToWidth($width * $canvas.getZoom())
-        img.scaleToWidth($width * $canvas.getZoom())
+        img.scaleToWidth($width)
+        img.scaleToWidth($width)
         img.selectable = false
         img.set('itemType', 'bunny')
         $canvas.add(img)
@@ -143,9 +143,8 @@
       }
     })
 
-    console.log({setWidth: $width * $canvas.getZoom()})
-    $canvas.setWidth($width * $canvas.getZoom())
-    $canvas.setHeight($width * $canvas.getZoom())
+    $canvas.setWidth($width)
+    $canvas.setHeight($width)
     $canvas.renderAll()
   }
 </script>
