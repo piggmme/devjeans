@@ -436,7 +436,7 @@ export const addCostume = (costume: CostumeKeys) => {
       $canvas.add(img)
 
       sortByZindex()
-      $canvas.renderAll()
+      $canvas.requestRenderAll()
     })
     return
   }
@@ -490,7 +490,7 @@ const uploadColorableCostume = (costume: string, lineImg: HTMLImageElement, colo
   })
   group.scaleToWidth($width)
   $canvas.add(group)
-  $canvas.renderAll()
+  $canvas.requestRenderAll()
 
   sortByZindex()
 
@@ -523,5 +523,5 @@ export const sortByZindex = () => {
     if (obj.itemType === 'photo') $canvas.bringToFront(obj)
   }
 
-  $canvas.renderAll()
+  $canvas.requestRenderAll()
 }

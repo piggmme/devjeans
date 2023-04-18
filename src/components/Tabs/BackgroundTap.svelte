@@ -1,6 +1,6 @@
 <script lang="ts">
   import {fabric} from 'fabric'
-  import { t } from 'svelte-i18n'
+  import {t} from 'svelte-i18n'
   import ColorPicker from 'svelte-awesome-color-picker'
   import {background, backgroundImage, canvas} from 'src/store/canvas'
   import {onMount} from 'svelte'
@@ -15,7 +15,7 @@
 
   $: if ($canvas) {
     $canvas.setBackgroundColor($background, () => {
-      $canvas.renderAll()
+      $canvas.requestRenderAll()
     })
   }
 
