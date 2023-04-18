@@ -1,6 +1,6 @@
 <script lang="ts">
   import {fabric} from 'fabric'
-  import { t } from 'svelte-i18n'
+  import {t} from 'svelte-i18n'
   import {logEvent} from 'firebase/analytics'
   import {analytics} from 'src/api/firebase/firebase'
   import {background, canvas, width} from 'src/store/canvas'
@@ -25,7 +25,7 @@
 
   $: if ($canvas) {
     $canvas.setBackgroundColor($background, () => {
-      $canvas.renderAll()
+      $canvas.requestRenderAll()
     })
   }
 
@@ -52,7 +52,7 @@
       $canvas.setActiveObject(img)
     })
 
-    $canvas.renderAll()
+    $canvas.requestRenderAll()
   }
 
   const removeImage = () => {

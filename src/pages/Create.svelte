@@ -36,7 +36,7 @@
   const setSavedCanvas = () => {
     $canvas.loadFromJSON($savedCanvas, () => {
       $savedCanvas = null
-      $canvas.renderAll()
+      $canvas.requestRenderAll()
     })
   }
 
@@ -63,7 +63,7 @@
         img.selectable = false
         img.set('itemType', 'bunny')
         $canvas.add(img)
-        $canvas.renderAll()
+        $canvas.requestRenderAll()
         initFinish = true
       },
       {crossOrigin: 'anonymous'},
@@ -85,12 +85,12 @@
   $: isDisableCanvas = $activeTabValue !== TabValue.Photo && $activeTabValue !== TabValue.Drawing
 
   $: if (!isDisableCanvas) {
-    $canvas.renderAll()
+    $canvas.requestRenderAll()
   }
 
   $: if ($canvas) {
     $canvas.setBackgroundColor($background, () => {
-      $canvas.renderAll()
+      $canvas.requestRenderAll()
     })
     // 캔버스의 오브젝트를 순회하며 버니는 selectable = false, 사진은 selectable = true로 설정
     $canvas.getObjects().forEach((obj) => {
@@ -115,7 +115,7 @@
         obj.opacity = 1
       })
     }
-    $canvas.renderAll()
+    $canvas.requestRenderAll()
   }
 
   // 로그인페이지에서 리다이렉트 되었다면 저장탭으로 이동
@@ -145,7 +145,7 @@
 
     $canvas.setWidth($width)
     $canvas.setHeight($width)
-    $canvas.renderAll()
+    $canvas.requestRenderAll()
   }
 </script>
 
