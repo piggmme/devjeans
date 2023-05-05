@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {idToken} from 'src/store/user'
+import {userInfo} from 'src/store/user'
 import type {ApiResponseType} from 'src/types/api'
 import type {PhotoRes} from 'src/types/photo'
 import type {UserInfo} from 'src/types/user'
@@ -11,8 +11,10 @@ export const getUserInfo = async () => {
       withCredentials: true,
     })
   } catch (e) {
+    // 인증이 만료되면 userInfo를 null로 설정
+    // 그럼 프론트에서 로그인이 풀리게됨
     if (e.response.status === 403) {
-      idToken.set(null)
+      userInfo.set(null)
     }
   }
   return result?.data?.data
