@@ -1,5 +1,6 @@
 import {initUser} from 'src/lib/initUser'
 import {idToken} from 'src/store/user'
+import {login} from '../service/auth'
 
 type InitAuthProps = {
   ref: HTMLElement
@@ -11,6 +12,7 @@ export const initAuth2 = ({ref, text = 'signin_with'}: InitAuthProps) => {
     client_id: import.meta.env.VITE_APP_GOOGLE_CLIENT_ID,
     callback: async (res) => {
       idToken.set(res.credential)
+      await login({idToken: res.credential})
       await initUser()
     },
   })
