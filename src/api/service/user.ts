@@ -1,4 +1,4 @@
-import axios from 'axios'
+import {api} from 'src/main'
 import {userInfo} from 'src/store/user'
 import type {ApiResponseType} from 'src/types/api'
 import type {PhotoRes} from 'src/types/photo'
@@ -7,9 +7,7 @@ import type {UserInfo} from 'src/types/user'
 export const getUserInfo = async () => {
   let result = null
   try {
-    result = await axios.get<ApiResponseType<UserInfo>>(`${import.meta.env.VITE_APP_API_URL}/user/info`, {
-      withCredentials: true,
-    })
+    result = await api.get<ApiResponseType<UserInfo>>(`/user/info`)
   } catch (e) {
     // 인증이 만료되면 userInfo를 null로 설정
     // 그럼 프론트에서 로그인이 풀리게됨
@@ -21,8 +19,6 @@ export const getUserInfo = async () => {
 }
 
 export const getUserPhotos = async () => {
-  const result = await axios.get<ApiResponseType<PhotoRes[]>>(`${import.meta.env.VITE_APP_API_URL}/user/photos`, {
-    withCredentials: true,
-  })
+  const result = await api.get<ApiResponseType<PhotoRes[]>>(`/user/photos`)
   return result.data.data
 }

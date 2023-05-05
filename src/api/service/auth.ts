@@ -1,11 +1,10 @@
-import axios from 'axios'
+import {api} from 'src/main'
 import {userInfo} from 'src/store/user'
 
 export const login = async ({idToken}: {idToken: string}) => {
   try {
-    const result = await axios.post(`${import.meta.env.VITE_APP_API_URL}/v1/oauth/login`, {
+    const result = await api.post(`/v1/oauth/login`, {
       idToken,
-      withCredentials: true,
     })
     return result.data
   } catch (e) {
@@ -15,7 +14,7 @@ export const login = async ({idToken}: {idToken: string}) => {
 
 export const logout = async () => {
   try {
-    const result = await axios.post(`${import.meta.env.VITE_APP_API_URL}/v1/oauth/logout`)
+    const result = await api.post(`/v1/oauth/logout`)
     userInfo.set(null)
 
     return result.data
