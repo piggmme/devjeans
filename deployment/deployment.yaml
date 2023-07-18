@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devjeans-front
+  namespace: devjeans
+  labels:
+    tier: front
+    app: devjeans
+spec:
+  selector:
+    matchLabels:
+      app: devjeans
+      tier: front
+  template:
+    metadata:
+      labels:
+        app: devjeans
+        tier: front
+    spec:
+      nodeSelector:
+        kops.k8s.io/instancegroup: nodes
+      containers:
+      - name: devjeans-front
+        image: patnmat/devjeans-front
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "1024Mi" # 1GiB
+            cpu: "500m" # 0.5 vCPU
+          limits:
+            memory: "2048Mi"
+            cpu: "1000m"
+        volumeMounts:
+        - name: devjeans-front
+          mountPath: "/devjeans/front/logs" # 로그 디렉토리 경로
+      volumes:
+      - name: devjeans-front
+        emptyDir: {} # 파드가 삭제될 때 볼륨도 같이 삭제됨. 영구보존 원할 시 pvc 생성할 것    
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: devjeans-front-service
+  namespace: devjeans
+  labels:
+    app: devjeans
+spec:
+  type: ClusterIP
+  selector:
+    app: devjeans
+    tier: front
+  ports:
+  - name: http
+    port: 80
+    targetPort: 80
