@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: front
+  namespace: devjeans
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: devjeans.dev-hee.com
+      http:
+        paths:
+          - backend:
+              service:
+                name: devjeans-front-service 
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix
