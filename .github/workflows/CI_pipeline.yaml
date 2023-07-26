@@ -1,23 +1,49 @@
-name: Main Front CI
+name: Main Backend CI
+
 on:
   push:
     branches: [ main ]
 
 jobs:
-  deploy:
+  dockerize:
     runs-on: ubuntu-latest
     steps:
-      - name: 저장소 Checkout
+      - name: Checkout 코드 저장소
         uses: actions/checkout@v3
 
-      - name: 도커 이미지 빌드 # (2)
-        run: docker build -t patnmat/devjeans-front .
-
-      - name: Docker Hub 로그인 # (3)
+      - name: 스프링부트 애플리케이션 빌드
+        run: ./gradlew build
+ 
+      - name: Docker Hub 로그인
         uses: docker/login-action@v2.1.0
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
+          username: ${{ secrets.DOCKER_USERNAME }} 
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Docker Hub 퍼블리시 # (4)
-        run: docker push patnmat/devjeans-front
+      - name: Docker Hub 퍼블리시
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/devjeans-front:${{ github.sha }} .
+
+  update-k8s-manifest:
+    needs: dockerize
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 인프라 레포
+        uses: actions/checkout@v3
+        with:
+          ref: main
+          repository: ${{ secrets.INFRA_GIT_REPO}}
+          token: ${{ secrets.FRONT_GIT_TOKEN }}
+          
+      - name: git config 확인 
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          
+      - name: 쿠버네티스 파일 업데이트
+        run: |
+          cd deployment/front
+          sed -i "s#${{ secrets.DOCKER_USERNAME }}/devjeans-front:.*#${{ secrets.DOCKER_USERNAME }}/devjeans-front:${{ github.sha }}#g" deployment.yaml
+         
+          git add -A
+          git commit -m "update front-image tag:${{ github.sha }}"
+          git push origin main
