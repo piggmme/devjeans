@@ -8,12 +8,12 @@ jobs:
   dockerize:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 코드 저장소
+      - name: Checkout 코드 저장소 
         uses: actions/checkout@v3
-
-      - name: 스프링부트 애플리케이션 빌드
-        run: ./gradlew build
- 
+        
+      - name: Docker 빌드
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/devjeans-front:${{ github.sha }} .
+        
       - name: Docker Hub 로그인
         uses: docker/login-action@v2.1.0
         with:
@@ -21,7 +21,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Docker Hub 퍼블리시
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/devjeans-front:${{ github.sha }} .
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/devjeans-front:${{ github.sha }} .
 
   update-k8s-manifest:
     needs: dockerize
