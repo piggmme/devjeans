@@ -1,10 +1,10 @@
-export const infiniteScroll = ({fetch, element}: {fetch: () => void; element: HTMLElement}) => {
+export const infiniteScroll = ({fetch, element}: {fetch: () => Promise<any>; element: HTMLElement}) => {
   if (element) {
     const observer = new IntersectionObserver(
-      (entries) => {
+      async (entries) => {
         const first = entries[0]
         if (first.isIntersecting) {
-          fetch()
+          await fetch()
         }
       },
       {threshold: 1},
