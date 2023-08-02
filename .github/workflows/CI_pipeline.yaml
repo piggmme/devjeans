@@ -1,4 +1,4 @@
-name: Main Backend CI
+name: Main Frontend CI
 
 on:
   push:
