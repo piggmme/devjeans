@@ -20,7 +20,7 @@
   }
 </script>
 
-<Nav />
+<!-- <Nav /> -->
 
 <main style={`width: ${$width}`}>
   <div class="titleWrapper">

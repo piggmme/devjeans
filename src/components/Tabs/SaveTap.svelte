@@ -72,7 +72,7 @@
 
 <div class="container">
   <h2>{$t('saveTap.title')}</h2>
-  <button class="upload" on:click={handleUpload}>{$t('saveTap.uploadAction')}</button>
+  <!-- <button class="upload" on:click={handleUpload}>{$t('saveTap.uploadAction')}</button> -->
   <button on:click={handleSaveImage}>{$t('saveTap.saveAction')}</button>
 </div>
 

@@ -156,7 +156,7 @@
     <canvas id="canvas" width="1500" height="1500" style="border:1px solid #ccc" />
   </div>
   <Toolbar />
-  <Best />
+  <!-- <Best /> -->
 </Layout>
 
 <style>
